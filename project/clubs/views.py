@@ -109,12 +109,15 @@ def club_reg(request):
 	
 		return render_to_response('clubs/register_club.html', args, context_instance=RequestContext(request))
 
-class ClubsView(generic.ListView):
-    template_name = 'clubs/clubs.html'
-    context_object_name = 'clubs'
-    
-    def get_queryset(self):
-        return Club.objects.order_by('name')
+@login_required
+def delete_club(request, pk):
+	if Club.objects.get(pk=pk).owner.member_id == request.user.id:
+		Membership.objects.filter(club_id=pk).delete()
+		club = Club.objects.get(pk=pk).delete()
+		return HttpResponseRedirect('/clubs/delete_success/')
+
+def delete_club_success(request):
+	return render_to_response('clubs/delete_club_success.html', {}, context_instance=RequestContext(request))
 
 class MemberView(generic.DetailView):
     model = Members

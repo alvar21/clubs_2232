@@ -4,10 +4,25 @@ Weaknesses:
 3) If an owner quits a club, he may not be a member of the club, but he will still own the club.
 
 To do list:
-delete clubs
+delete clubs for admin
 adminstrator view
 members list 
 
 Notes:
-on creation of a club, the current user will be the owner of the club.
-There is a trigger in the database to update the number of members whenever a user joins that club.
+(i) on creation of a club, the current user will be the owner of the club.
+
+
+TRIGGERS:
+(i) There is a trigger that updates the user table correspondingly to the edited member info.
+(ii) There are two triggers in the database to update the number of members whenever a user joins or quits that club.
+(iii) There is a trigger to check if after a club is deleted, the owner of that club still owns other clubs. If yes, do not delete him from the owner group. If no, delete him from the owner group. 
+*The owner group determines whether the user has access to the owner drop down bar. 
+
+SIGNALS:
+(i) A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
+
+GROUPS:
+(i) Owner
+
+
+

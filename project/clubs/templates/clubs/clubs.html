@@ -78,7 +78,7 @@
 				<td>{{ club.likes }}</td>
 				<td><a href="/ownerclubs/{{club.id}}"><button>View</button></a></td>
 				<td><a href="/ownerclubs/{{club.id}}/edit/"><button>Edit</button></td>
-				<td><a href=""><button>Delete</button></td>
+				<td><a href="/clubs/delete/{{ club.id }}"><button>Delete</button></td>
             </tr>
 		{% endfor %}
     </tbody>

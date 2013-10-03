@@ -25,6 +25,9 @@ urlpatterns = patterns('',
 	url(r'^clubs/quit/(?P<pk>\d+)/$', views.quit_club, name='quit_club'),
 	url(r'^clubs/quit/success/(?P<pk>\d+)/$', views.quit_success, name='quit_success'),
 	url(r'^clubs/quit_fail/(?P<pk>\d+)/$', views.quit_fail, name='quit_fail'),
+	# delete club
+	url(r'^clubs/delete/(?P<pk>\d+)/$', views.delete_club, name='delete_club'),
+	url(r'^clubs/delete_success/$', views.delete_club_success, name='delete_club_success'),
 	# owner views
 	url(r'^ownerclubs/$', views.OwnerClubsView.as_view(), name='owner_clubs'),
 	url(r'^ownerclubs/(?P<pk>\d+)/$', views.OwnerClubView.as_view(), name='owner_club'),
