@@ -17,9 +17,9 @@
             <tr>
                 <td>{{ member.first_name }} {{ member.last_name }}</td>
 				<td>{{ member.email }}</td>
-                <td>{{ member.facebook }}</td>
-				<td>{{ member.twitter }}</td>
-				<td>{{ member.interests }}</td>
+                <td>{% if member.facebook != null %} {{ member.facebook }} {% else %} {% endif %}</td>
+				<td>{% if member.twitter != null %} {{ member.twitter }} {% else %} {% endif %}</td>
+				<td>{% if member.interests != null %} {{ member.interests }} {% else %} {% endif %}</td>
 				<td><a href="/member/{{ member.member_id }}/"><button>View</button></a></td>
             </tr>
 		{% endfor %}
@@ -42,9 +42,41 @@
             <tr>
                 <td>{{ member.first_name }} {{ member.last_name }}</td>
 				<td>{{ member.email }}</td>
-                <td>{{ member.facebook }}</td>
-				<td>{{ member.twitter }}</td>
-				<td>{{ member.interests }}</td>
+                <td>{% if member.facebook != null %} {{ member.facebook }} {% else %} {% endif %}</td>
+				<td>{% if member.twitter != null %} {{ member.twitter }} {% else %} {% endif %}</td>
+				<td>{% if member.interests != null %} {{ member.interests }} {% else %} {% endif %}</td>
+				{% for c in club %}
+				<td><a href="/membership/{{ member.member_id }}/{{ c.id }}/"><button>Membership</button></a></td>
+				{% endfor %}
+				<td><a href="/member/{{ member.member_id }}/"><button>View</button></a></td>
+            </tr>
+		{% endfor %}
+    </tbody>
+    </table>
+{% elif ownerclubmembers %}
+<h1>Owner Club Members</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+				<th>Email</th>
+				<th>Facebook</th>
+				<th>Twitter</th>
+				<th>Interests</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in ownerclubmembers %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+				<td>{{ member.email }}</td>
+                <td>{% if member.facebook != null %} {{ member.facebook }} {% else %} {% endif %}</td>
+				<td>{% if member.twitter != null %} {{ member.twitter }} {% else %} {% endif %}</td>
+				<td>{% if member.interests != null %} {{ member.interests }} {% else %} {% endif %}</td>
+				{% for c in club %}
+				<td><a href="/membership/{{ member.member_id }}/{{ c.id }}/edit/"><button>Edit Membership</button></a></td>
+				<td><a href="/membership/{{ member.member_id }}/{{ c.id }}/"><button>Membership</button></a></td>
+				{% endfor %}
 				<td><a href="/member/{{ member.member_id }}/"><button>View</button></a></td>
             </tr>
 		{% endfor %}

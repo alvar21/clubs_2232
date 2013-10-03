@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Membership</h1> 
+{% for m in member %}
+    <p>
+		<strong>Member:</strong> {{ m }}
+	</p>
+{% endfor %}
+{% for c in club %}
+    <p>
+		<strong>Club:</strong> {{ c }}
+	</p>
+{% endfor %}
+{% for member in membership %}
+    <p>
+		<strong>Date joined:</strong> {{ member.date_joined }}
+	</p>
+	<p>
+        <strong>Last paid:</strong> {% if member.date_last_paid != NULL %} {{ member.date_last_paid }} {% else %} {% endif %}
+    </p>
+{% endfor %}
+{% endblock %}

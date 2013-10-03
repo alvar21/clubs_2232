@@ -24,6 +24,22 @@ class MemberForm(forms.ModelForm):
 		exclude = ('user')
 		fields = ('first_name', 'last_name', 'email', 'facebook', 'twitter', 'interests')
 
+class MembershipForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(MembershipForm, self).__init__(*args, **kwargs)
+ 
+    def save(self, commit=True):
+        instance = super(MembershipForm, self).save(commit=False)
+        if self.user:
+            instance.user = self.user
+        return instance.save()
+
+    class Meta:
+		model = Membership
+		fields = ('date_last_paid',)
+
 class ClubForm(forms.ModelForm):
 
     class Meta:

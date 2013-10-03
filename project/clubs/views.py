@@ -115,6 +115,11 @@ def delete_club(request, pk):
 		Membership.objects.filter(club_id=pk).delete()
 		club = Club.objects.get(pk=pk).delete()
 		return HttpResponseRedirect('/clubs/delete_success/')
+	else:
+		return redirect('/unauthorised')
+
+def unauthorised(request):
+	return render_to_response('unauthorised.html', {}, context_instance=RequestContext(request))
 
 def delete_club_success(request):
 	return render_to_response('clubs/delete_club_success.html', {}, context_instance=RequestContext(request))
@@ -140,8 +145,51 @@ class ClubMembersView(generic.ListView):
 		mems = []
 		for m in mem:
 			mems.append(Members.objects.get(member_id=m.member_id))
-		context['clubmembers'] = mems
+		context['clubmembers'] = sorted(mems)
+		context['club'] = Club.objects.filter(id=self.kwargs['pk'])
 		return context
+
+class OwnerClubMembersView(generic.ListView):
+	model = Members
+	template_name = 'members/members.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(OwnerClubMembersView, self).get_context_data(**kwargs)
+		mem = Membership.objects.filter(club_id=self.kwargs['pk'])
+		mems = []
+		for m in mem:
+			mems.append(Members.objects.get(member_id=m.member_id))
+		context['ownerclubmembers'] = sorted(mems)
+		context['club'] = Club.objects.filter(id=self.kwargs['pk'])
+		return context
+
+class MembershipView(generic.ListView):
+    model = Membership
+    template_name = 'members/membership.html'
+
+    def get_context_data(self, **kwargs):
+	    context = super(MembershipView, self).get_context_data(**kwargs)
+	    context['member'] = Members.objects.filter(member_id=self.kwargs['pk'])
+	    context['club'] = Club.objects.filter(id=self.kwargs['id'])
+	    context['membership'] = Membership.objects.filter(member=self.kwargs['pk'], club=self.kwargs['id'])
+	    return context
+
+@login_required
+def membership_edit(request, pk, id):
+	instance = Membership.objects.get(member=pk, club=id)
+	club = Club.objects.get(pk=id)
+	if club.owner == Members.objects.get(member_id=request.user.id):
+	    if request.method == "POST":
+		    form = MembershipForm(request.POST, instance = instance)
+		    if form.is_valid():
+			    membership = form.save()
+			    return redirect('/ownerclub/%s/members' % id)
+	    else:
+		    form = MembershipForm(instance = instance)
+		    return render_to_response('members/membership_edit.html', {'form': form, 'membership': instance}, context_instance=RequestContext(request))
+	else:
+		return redirect('/unauthorised')
+
 
 @login_required
 def member_edit(request, pk):
@@ -158,7 +206,7 @@ def member_edit(request, pk):
 			form = MemberForm(instance=instance, user=request.user)
 			return render_to_response('members/member_edit.html',  {'form' : form}, context_instance=RequestContext(request))
 	else:
-		return redirect('/home/')
+		return redirect('/unauthorised')
 	
 class OwnerClubsView(generic.ListView):
 	model = Club
@@ -187,5 +235,5 @@ def club_edit(request, pk):
 		form = ClubForm(instance = instance)
 		return render_to_response('clubs/club_edit.html', {'form': form, 'club': Club.objects.get(pk=pk)}, context_instance=RequestContext(request))
     else:
-	return redirect('/ownerclubs/')
+	return redirect('/unauthorised')
 

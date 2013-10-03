@@ -32,6 +32,12 @@ urlpatterns = patterns('',
 	url(r'^ownerclubs/$', views.OwnerClubsView.as_view(), name='owner_clubs'),
 	url(r'^ownerclubs/(?P<pk>\d+)/$', views.OwnerClubView.as_view(), name='owner_club'),
 	url(r'^ownerclubs/(?P<pk>\d+)/edit/$', views.club_edit, name='club_edit'),
+	url(r'^ownerclub/(?P<pk>\d+)/members/$', views.OwnerClubMembersView.as_view(), name='owner_club_members'),
+	# membership view
+	url(r'^membership/(?P<pk>\d+)/(?P<id>\d+)/$', views.MembershipView.as_view(), name='membership'),
+	url(r'^membership/(?P<pk>\d+)/(?P<id>\d+)/edit/$', views.membership_edit, name='membership_edit'),
+	# unauthorised view
+	url(r'^unauthorised/$', views.unauthorised, name='unauthorised'),
 )
 
 
