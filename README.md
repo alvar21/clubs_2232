@@ -7,7 +7,7 @@ Todos
  	- Club (by address, suburb)
 2. UML [Alvar]
 3. Data 
-	- for users [Ian]
+	- for users (default password problem when importing) [Ian]
 	- for clubs [William]
 4. MySQL Triggers [Edwin] 
 5. Installing modules on server
