@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+{% if members %}
+<h1>Members</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+				<th>Email</th>
+				<th>Facebook</th>
+				<th>Twitter</th>
+				<th>Interests</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+				<td>{{ member.email }}</td>
+                <td>{{ member.facebook }}</td>
+				<td>{{ member.twitter }}</td>
+				<td>{{ member.interests }}</td>
+				<td><a href="/member/{{ member.member_id }}/"><button>View</button></a></td>
+            </tr>
+		{% endfor %}
+    </tbody>
+    </table>
+{% elif clubmembers %}
+<h1>Club Members</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+				<th>Email</th>
+				<th>Facebook</th>
+				<th>Twitter</th>
+				<th>Interests</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in clubmembers %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+				<td>{{ member.email }}</td>
+                <td>{{ member.facebook }}</td>
+				<td>{{ member.twitter }}</td>
+				<td>{{ member.interests }}</td>
+				<td><a href="/member/{{ member.member_id }}/"><button>View</button></a></td>
+            </tr>
+		{% endfor %}
+    </tbody>
+    </table>
+{% else %}
+<p>There are no members in this club.</p>
+{% endif %}
+{% endblock %}
+

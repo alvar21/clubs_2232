@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+{% if clubs %}
+<h1>Clubs</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+				<th>Owner</th>
+                <th>Type</th>
+				<th>Members</th>
+				<th>Address</th>
+                <th>Likes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in clubs %}
+            <tr>
+                <td>{{ club.name }}</td>
+				<td>{{ club.owner }}</td>
+                <td>{{ club.club_type }}</td>
+				<td>{{ club.number_of_members }}</td>
+				<td>{{ club.address }}</td>
+				<td>{{ club.likes }}</td>
+				<td><a href="/clubs/{{club.id}}"><button>View</button></a></td>
+				<td><a href="/clubs/join/{{ club.id }}"><button>Join</button></td>
+            </tr>
+		{% endfor %}
+    </tbody>
+    </table>
+{% elif myclubs %}
+	<h1>My Clubs</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+				<th>Owner</th>
+                <th>Type</th>
+				<th>Members</th>
+				<th>Address</th>
+                <th>Likes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in myclubs %}
+            <tr>
+                <td>{{ club.name }}</td>
+				<td>{{ club.owner }}</td>
+                <td>{{ club.club_type }}</td>
+				<td>{{ club.number_of_members }}</td>
+				<td>{{ club.address }}</td>
+				<td>{{ club.likes }}</td>
+				<td><a href="/myclubs/{{club.id}}"><button>View</button></a></a></td>
+				<td><a href="/clubs/quit/{{ club.id }}"><button>Quit</button></td>
+            </tr>
+		{% endfor %}
+    </tbody>
+    </table>
+{% elif ownerclubs %}
+	<h1>Clubs Owned</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+				<th>Members</th>
+				<th>Address</th>
+                <th>Likes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in ownerclubs %}
+            <tr>
+                <td>{{ club.name }}</td>
+                <td>{{ club.club_type }}</td>
+				<td>{{ club.number_of_members }}</td>
+				<td>{{ club.address }}</td>
+				<td>{{ club.likes }}</td>
+				<td><a href="/ownerclubs/{{club.id}}"><button>View</button></a></td>
+				<td><a href="/ownerclubs/{{club.id}}/edit/"><button>Edit</button></td>
+				<td><a href=""><button>Delete</button></td>
+            </tr>
+		{% endfor %}
+    </tbody>
+    </table>
+{% else %}
+<p>There are no clubs.</p>
+{% endif %}
+{% endblock %}

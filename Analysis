@@ -1,0 +1,13 @@
+Weaknesses: 
+1) Default users (users with username firstname_lastname) are not able to change their usernames.
+2) Owners are not able to transfer their ownership.
+3) If an owner quits a club, he may not be a member of the club, but he will still own the club.
+
+To do list:
+delete clubs
+adminstrator view
+members list 
+
+Notes:
+on creation of a club, the current user will be the owner of the club.
+There is a trigger in the database to update the number of members whenever a user joins that club.
