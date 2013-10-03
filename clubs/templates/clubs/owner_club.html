@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Club: {{ club }}</h1>
+    <p>
+        <strong>Name:</strong> {{ club.name }}
+    </p>
+    <p>
+        <strong>Owner:</strong> {{ club.owner }}
+    </p>
+    <p>
+        <strong>Type:</strong> {{ club.club_type }}
+    </p>
+    <p>
+        <strong>Members:</strong> {{ club.number_of_members }}
+    </p>
+    <p>
+        <strong>Creation date:</strong> {{ club.creation_date }}
+    </p>
+    <p>
+        <strong>Address:</strong> {{ club.address }}
+    </p>
+    <p>
+        <strong>Contact:</strong> {{ club.contact_number }}
+    </p>
+    <p>
+        <strong>Comment:</strong> {% if club.comment != Null %} {{ club.comment }} {% else %} {% endif %}
+    </p>
+    <p>
+        {{ club.likes }} people liked this club 
+		<a href="/clubs/like/{{ club.id }}">
+			<button>Like</button>
+		</a>   
+	</p>
+	</p>
+		<a href=""><button>Edit</button></a> 
+		<a href=""><button>Delete</button></a>   
+	<p>
+{% endblock %}
