@@ -1,7 +1,7 @@
 clubs_2232
 ==========
 
-Todos
+##Todos
 1. Search (by listing pages) [Alvar, Ian]
 	- Member (by first/last name, email address)
  	- Club (by address, suburb)
