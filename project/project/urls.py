@@ -23,7 +23,7 @@ urlpatterns = patterns('',
 	url(r'^accounts/invalid/$', 'project.views.invalid_login'),
 	url(r'^accounts/register/$', 'project.views.register_user'),
 	url(r'^accounts/register_success/$', 'project.views.register_success'),
-	url(r'^accounts/change_password/$', 'django.contrib.auth.views.password_change'),
-	url(r'^accounts/change_password_done/$', 'django.contrib.auth.views.password_change_done'),
+	url(r'^accounts/change_password/$', 'project.views.password_change'),
+	url(r'^accounts/change_password_done/$', 'project.views.password_change_done'),
 )
 

@@ -27,6 +27,15 @@
 								{% endif %}
                             </ul>
                         </li>
+							{% if user.is_staff %}
+						<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+								<li><a href="{% url 'clubs:adminclubs' %}">Clubs</a></li>
+                            </ul>
+                        </li>
+							{% endif %}
+                        </li>
 							{% for group in user.groups.all %}
 							{% if group.name == 'owner' %}
 						<li class="dropdown">

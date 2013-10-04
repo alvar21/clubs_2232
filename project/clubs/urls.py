@@ -28,14 +28,17 @@ urlpatterns = patterns('',
 	# delete club
 	url(r'^clubs/delete/(?P<pk>\d+)/$', views.delete_club, name='delete_club'),
 	url(r'^clubs/delete_success/$', views.delete_club_success, name='delete_club_success'),
+	# edit club
+	url(r'^clubs/(?P<pk>\d+)/edit/$', views.club_edit, name='club_edit'),
 	# owner views
 	url(r'^ownerclubs/$', views.OwnerClubsView.as_view(), name='owner_clubs'),
 	url(r'^ownerclubs/(?P<pk>\d+)/$', views.OwnerClubView.as_view(), name='owner_club'),
-	url(r'^ownerclubs/(?P<pk>\d+)/edit/$', views.club_edit, name='club_edit'),
 	url(r'^ownerclub/(?P<pk>\d+)/members/$', views.OwnerClubMembersView.as_view(), name='owner_club_members'),
-	# membership view
+	# membership views
 	url(r'^membership/(?P<pk>\d+)/(?P<id>\d+)/$', views.MembershipView.as_view(), name='membership'),
 	url(r'^membership/(?P<pk>\d+)/(?P<id>\d+)/edit/$', views.membership_edit, name='membership_edit'),
+	# admin views
+	url(r'^admin/clubs/$', views.AdminView.as_view(), name='adminclubs'),
 	# unauthorised view
 	url(r'^unauthorised/$', views.unauthorised, name='unauthorised'),
 )

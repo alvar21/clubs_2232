@@ -111,7 +111,7 @@ def club_reg(request):
 
 @login_required
 def delete_club(request, pk):
-	if Club.objects.get(pk=pk).owner.member_id == request.user.id:
+	if Club.objects.get(pk=pk).owner.member_id == request.user.id or request.user.is_staff:
 		Membership.objects.filter(club_id=pk).delete()
 		club = Club.objects.get(pk=pk).delete()
 		return HttpResponseRedirect('/clubs/delete_success/')
@@ -225,15 +225,22 @@ class OwnerClubView(generic.DetailView):
 @login_required
 def club_edit(request, pk):
     instance = Club.objects.get(pk=pk)
-    if instance.owner == Members.objects.get(member_id=request.user.id):
+    if instance.owner == Members.objects.get(member_id=request.user.id) or request.user.is_staff:
 	    if request.method == "POST":
 		form = ClubForm(request.POST, instance = instance)
 		if form.is_valid():
 		    club = form.save()
-		    return redirect('/ownerclubs/')
+		    return redirect('/ownerclubs/%s' % pk)
 	    else:
 		form = ClubForm(instance = instance)
 		return render_to_response('clubs/club_edit.html', {'form': form, 'club': Club.objects.get(pk=pk)}, context_instance=RequestContext(request))
     else:
 	return redirect('/unauthorised')
+
+class AdminView(generic.ListView):
+    template_name = 'clubs/clubs.html'
+    context_object_name = 'adminclubs'
+    
+    def get_queryset(self):
+        return Club.objects.order_by('name')
 

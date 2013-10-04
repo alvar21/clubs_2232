@@ -3,22 +3,16 @@ Weaknesses:
 2) Owners are not able to transfer their ownership.
 3) If an owner quits a club, he may not be a member of the club, but he will still own the club.
 
-To do list (for edwin):
-changepw page
-delete clubs for admin
-adminstrator view
-add description and location fields to Club
-implement app to find address' mgr 
-
 Notes:
-(i) on creation of a club, the current user will be the owner of the club.
+(i) On creation of a club, the current user will be the owner of the club.
 
 FEATURES:
-(i) Users are able to create join/quit a club.
+(i) Users are able to create/join/quit a club.
 (ii) Once a new club is created, the current user would be the owner.
 (iii) Able to list members of a club (at the club's view)
 (iv) Able to view a member's membership information (last paid, date joined)
 (v) Owners are able to edit their members' membership information (last paid)
+(vi) Admins are able to edit/delete a club.
 
 TRIGGERS:
 (i) There is a trigger that updates the user table correspondingly to the edited member info.
@@ -30,7 +24,9 @@ SIGNALS:
 (i) A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
 
 GROUPS:
-(i) Owner
+(i) Owners
+(ii) Administrators
+(iii) End-users
 
 
 

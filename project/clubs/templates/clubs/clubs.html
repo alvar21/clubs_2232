@@ -83,6 +83,35 @@
 		{% endfor %}
     </tbody>
     </table>
+{% elif adminclubs %}
+<h1>Clubs</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+				<th>Owner</th>
+                <th>Type</th>
+				<th>Members</th>
+				<th>Address</th>
+                <th>Likes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in adminclubs %}
+            <tr>
+                <td>{{ club.name }}</td>
+				<td>{{ club.owner }}</td>
+                <td>{{ club.club_type }}</td>
+				<td><a href="/clubs/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
+				<td>{{ club.address }}</td>
+				<td>{{ club.likes }}</td>
+				<td><a href="/ownerclubs/{{club.id}}"><button>View</button></a></td>
+				<td><a href="/ownerclubs/{{club.id}}/edit/"><button>Edit</button></td>
+				<td><a href="/clubs/delete/{{ club.id }}"><button>Delete</button></td>
+            </tr>
+		{% endfor %}
+    </tbody>
+    </table>
 {% else %}
 <p>There are no clubs.</p>
 {% endif %}
