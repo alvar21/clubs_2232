@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% if clubs %}
+<h1>Members Per Club</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Club</th>
+				<th>Number</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in clubs %}
+            <tr>
+                <td>{{ club.clubname }}</td>
+				<td>{{ club.number }}</td>
+             </tr>
+		{% endfor %}
+    </tbody>
+    </table>
+{% else %}
+<p>There are no clubs.</p>
+{% endif %}
+{% endblock %}

@@ -115,6 +115,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
 	'clubs',
+	'stats',
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.sites',

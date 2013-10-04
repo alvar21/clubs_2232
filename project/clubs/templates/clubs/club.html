@@ -19,6 +19,9 @@
     <p>
         <strong>Address:</strong> {{ club.address }}
     </p>
+	<p>
+		<strong>Coordinates:</strong> {{ club.location_latitude }}, {{ club.location_longtitude }}
+	</p>
     <p>
         <strong>Contact:</strong> {{ club.contact_number }}
     </p>
@@ -32,7 +35,7 @@
         <strong>Twitter:</strong> {{ club.twitter }}
     </p>
     <p>
-        <strong>Comment:</strong> {% if club.comment != Null %} {{ club.comment }} {% else %} {% endif %}
+        <strong>Description:</strong> {% if club.description != Null %} {{ club.description }} {% else %} {% endif %}
     </p>
     <p>
         {{ club.likes }} people liked this club 

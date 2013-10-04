@@ -62,6 +62,14 @@
                                 <li><a href="{% url 'clubs:members' %}">All Members</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Stats<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'stats:users_stats' %}">Users</a></li>
+								<li><a href="{% url 'stats:clubs' %}">Club Types</a></li>
+								<li><a href="{% url 'stats:mpc' %}">Members Per Club</a></li>
+                            </ul>
+                        </li>
 		            </ul>
                 </div>
             </div>

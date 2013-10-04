@@ -13,6 +13,7 @@ FEATURES:
 (iv) Able to view a member's membership information (last paid, date joined)
 (v) Owners are able to edit their members' membership information (last paid)
 (vi) Admins are able to edit/delete a club.
+(vii) Various statistics provided.
 
 TRIGGERS:
 (i) There is a trigger that updates the user table correspondingly to the edited member info.
