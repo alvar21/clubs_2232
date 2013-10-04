@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Register Club</h1> 
 
-<form action="/clubs/register/" method="post">{% csrf_token %}
+<form method="post" action="/clubs/register/">{% csrf_token %}
 <ul>
 {{form.as_ul}}
 </ul>

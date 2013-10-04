@@ -24,7 +24,7 @@
 				<td><a href="/clubs/join/{{ club.id }}"><button>Join</button></td>
             </tr>
 		{% endfor %}
-    </tbody>
+        </tbody>
     </table>
 {% elif myclubs %}
 	<h1>My Clubs</h1> 
@@ -50,7 +50,7 @@
 				<td><a href="/clubs/quit/{{ club.id }}"><button>Quit</button></td>
             </tr>
 		{% endfor %}
-    </tbody>
+        </tbody>
     </table>
 {% elif ownerclubs %}
 	<h1>Clubs Owned</h1> 
@@ -75,9 +75,9 @@
 				<td><a href=""><button>Delete</button></td>
             </tr>
 		{% endfor %}
-    </tbody>
+        </tbody>
     </table>
 {% else %}
-<p>There are no clubs.</p>
+    <p>There are no clubs.</p>
 {% endif %}
 {% endblock %}

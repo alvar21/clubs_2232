@@ -156,7 +156,8 @@ def club_edit(request, pk):
     else:
 	return redirect('/ownerclubs/')
 
-def search(request):
+@login_required
+def search_clubs(request):
     query_string = ''
     found_entries = None
     if ('q' in request.GET) and request.GET['q'].strip():
@@ -164,8 +165,19 @@ def search(request):
         
         entry_query = get_query(query_string, ['title', 'body',])
         
-        found_entries = Entry.objects.filter(entry_query).order_by('-pub_date')
+        found_entries = Entry.objects.filter(entry_query) #.order_by('name')
 
     return render_to_response('search/search_results.html',
                           { 'query_string': query_string, 'found_entries': found_entries },
                           context_instance=RequestContext(request))
+"""
+def search(request):
+   objects = []
+
+   for model,fields in MODEL_MAP.iteritems():
+       objects+=generic_search(request,model,fields,QUERY)
+
+   return render_to_response("search_results.html",
+                             {"objects":objects,
+                              "search_string" : request.GET.get(QUERY,"")})    
+"""

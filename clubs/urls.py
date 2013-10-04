@@ -14,17 +14,23 @@ urlpatterns = patterns('',
 	url(r'^myclubs/(?P<pk>\d+)/$', views.MyClubView.as_view(), name='myclub'),
 	url(r'^clubs/like/(?P<pk>\d+)/$', views.LikeClubView, name='like_club'),
     url(r'^clubs/register/$', views.club_reg, name='club_reg'),
-	# join/quit club
+
+	# Join/quit club views
 	url(r'^clubs/join/(?P<pk>\d+)/$', views.join_club, name='join_club'),
 	url(r'^clubs/join/success/(?P<pk>\d+)/$', views.join_success, name='join_success'),
 	url(r'^clubs/join_fail/(?P<pk>\d+)/$', views.join_fail, name='join_fail'),
 	url(r'^clubs/quit/(?P<pk>\d+)/$', views.quit_club, name='quit_club'),
 	url(r'^clubs/quit/success/(?P<pk>\d+)/$', views.quit_success, name='quit_success'),
 	url(r'^clubs/quit_fail/(?P<pk>\d+)/$', views.quit_fail, name='quit_fail'),
-	# owner views
+
+	# Owner views
 	url(r'^ownerclubs/$', views.OwnerClubsView.as_view(), name='owner_clubs'),
 	url(r'^ownerclubs/(?P<pk>\d+)/$', views.OwnerClubView.as_view(), name='owner_club'),
 	url(r'^ownerclubs/(?P<pk>\d+)/edit/$', views.club_edit, name='club_edit'),
+
+	# Search view
+    url(r'^search/$', views.search_clubs, name='search'),
+
 )
 
 
