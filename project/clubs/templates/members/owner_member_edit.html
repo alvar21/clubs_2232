@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Info</h1>
+<form method="post" action="/ownerclub/{{club.id}}/members/{{member.member_id}}/edit/">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+*Please enter a URL for Facebook field.
+    <p><input type="submit" value="Confirm"/></p>
+</form>
+{% endblock %}

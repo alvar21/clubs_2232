@@ -135,6 +135,20 @@ class MembersView(generic.ListView):
     def get_queryset(self):
         return Members.objects.order_by('first_name')
 
+class MemberClubsView(generic.ListView):
+	model = Club
+	template_name = 'clubs/clubs.html'
+	
+	def get_context_data(self, **kwargs):
+		context = super(MemberClubsView, self).get_context_data(**kwargs)
+		mem = Membership.objects.filter(member=self.kwargs['pk'])
+		club_ids = []
+		for m in mem:
+			club_ids.append(m.club_id)
+		context['membername'] = Members.objects.filter(member_id=self.kwargs['pk'])
+		context['memberclubs'] = Club.objects.filter(id__in=club_ids)
+		return context
+
 class ClubMembersView(generic.ListView):
 	model = Members
 	template_name = 'members/members.html'
@@ -194,7 +208,7 @@ def membership_edit(request, pk, id):
 @login_required
 def member_edit(request, pk):
 	instance = Members.objects.get(pk=pk)
-	if instance.member_id == request.user.id:
+	if instance.member_id == request.user.id or request.user.is_staff:
 		if request.method == 'POST':
 			form = MemberForm(data=request.POST, instance=instance, user=request.user)
 			if form.is_valid():
@@ -207,6 +221,24 @@ def member_edit(request, pk):
 			return render_to_response('members/member_edit.html',  {'form' : form}, context_instance=RequestContext(request))
 	else:
 		return redirect('/unauthorised')
+
+@login_required
+def owner_member_edit(request, pk, pk2):
+	instance = Members.objects.get(member_id=pk2)
+	if (request.user.id == Club.objects.get(pk=pk).owner.member_id and Membership.objects.filter(club_id=pk, member_id=pk2).exists()) or request.user.is_staff:
+		if request.method == 'POST':
+			form = MemberForm(data=request.POST, instance=instance, user=request.user)
+			if form.is_valid():
+				form.save()
+				return HttpResponseRedirect('/ownerclub/%s/members/' % pk)
+			else:
+				print "something went wrong"
+		else:
+			form = MemberForm(instance=instance, user=request.user)
+			return render_to_response('members/owner_member_edit.html',  {'form' : form, 'club': Club.objects.get(pk=pk), 'member': Members.objects.get(member_id=pk2)}, context_instance=RequestContext(request))
+	else:
+		return redirect('/unauthorised')
+
 	
 class OwnerClubsView(generic.ListView):
 	model = Club
@@ -243,4 +275,13 @@ class AdminView(generic.ListView):
     
     def get_queryset(self):
         return Club.objects.order_by('name')
+
+
+class AdminMembersView(generic.ListView):
+    template_name = 'members/members.html'
+    context_object_name = 'adminmembers'
+    
+    def get_queryset(self):
+        return Members.objects.order_by('first_name')
+
 

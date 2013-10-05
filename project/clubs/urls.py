@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 	url(r'^members/$', views.MembersView.as_view(), name='members'),
 	url(r'^member/(?P<pk>\d+)/$', views.MemberView.as_view(), name='member'),
 	url(r'^member/(?P<pk>\d+)/edit/$', views.member_edit, name='member_edit'),
+    url(r'^member/clubs/(?P<pk>\d+)/$', views.MemberClubsView.as_view(), name='memberclubs'),
 	# clubs
     url(r'^clubs/$', views.ClubsView.as_view(), name='clubs'),
 	url(r'^myclubs/$', views.MyClubsView.as_view(), name='my_clubs'),
@@ -34,11 +35,13 @@ urlpatterns = patterns('',
 	url(r'^ownerclubs/$', views.OwnerClubsView.as_view(), name='owner_clubs'),
 	url(r'^ownerclubs/(?P<pk>\d+)/$', views.OwnerClubView.as_view(), name='owner_club'),
 	url(r'^ownerclub/(?P<pk>\d+)/members/$', views.OwnerClubMembersView.as_view(), name='owner_club_members'),
+	url(r'^ownerclub/(?P<pk>\d+)/members/(?P<pk2>\d+)/edit/$', views.owner_member_edit, name='owner_member_edit'),
 	# membership views
 	url(r'^membership/(?P<pk>\d+)/(?P<id>\d+)/$', views.MembershipView.as_view(), name='membership'),
 	url(r'^membership/(?P<pk>\d+)/(?P<id>\d+)/edit/$', views.membership_edit, name='membership_edit'),
 	# admin views
 	url(r'^admin/clubs/$', views.AdminView.as_view(), name='adminclubs'),
+	url(r'^admin/members/$', views.AdminMembersView.as_view(), name='adminmembers'),
 	# unauthorised view
 	url(r'^unauthorised/$', views.unauthorised, name='unauthorised'),
 )

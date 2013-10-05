@@ -14,7 +14,10 @@ FEATURES:
 (v) Owners are able to edit their members' membership information (last paid)
 (vi) Admins are able to edit/delete a club.
 (vii) Various statistics provided.
-(V) Coordinates can be retrieved from address during club registration automatically.
+(viii) Coordinates can be retrieved from address during club registration automatically.
+(viv) Able to list the clubs a member joined.
+(x) Admins and owners are able to edit members' info.
+(xi) Authorised page pops out every time tries to do something outside their given powers.
 
 TRIGGERS:
 (i) There is a trigger that updates the user table correspondingly to the edited member info.

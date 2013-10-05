@@ -17,4 +17,11 @@
     </p>
     <p>
         <strong>Interests:</strong> {% if members.interests != Null %} {{ members.interests }} {% else %} {% endif %}
+	</p>
+    <p>
+		<strong>Clubs Joined:</strong>
+		<a href="/member/clubs/{{ members.member_id }}/">
+			<button>List</button>
+		</a>   
+	</p>
 {% endblock %}
