@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Membership</h1>
+<form method="post" action="/admin/clubs/{{ membership.club.id }}/membership/{{ membership.member.member_id }}/edit/">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>YYYY-MM-DD</b></p>
+    <p><input type="submit" value="Confirm"/></p>
+</form>
+{% endblock %}

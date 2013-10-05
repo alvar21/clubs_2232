@@ -77,7 +77,7 @@
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
 				<td><a href="/ownerclubs/{{club.id}}"><button>View</button></a></td>
-				<td><a href="/clubs/{{club.id}}/edit/"><button>Edit</button></td>
+				<td><a href="/ownerclubs/{{club.id}}/edit/"><button>Edit</button></td>
 				<td><a href="/clubs/delete/{{ club.id }}"><button>Delete</button></td>
             </tr>
 		{% endfor %}
@@ -102,11 +102,11 @@
                 <td>{{ club.name }}</td>
 				<td>{{ club.owner }}</td>
                 <td>{{ club.club_type }}</td>
-				<td><a href="/clubs/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
+				<td><a href="/admin/clubs/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
-				<td><a href="/ownerclubs/{{club.id}}"><button>View</button></a></td>
-				<td><a href="/ownerclubs/{{club.id}}/edit/"><button>Edit</button></td>
+				<td><a href="/admin/clubs/{{club.id}}"><button>View</button></a></td>
+				<td><a href="/admin/clubs/{{club.id}}/edit/"><button>Edit</button></td>
 				<td><a href="/clubs/delete/{{ club.id }}"><button>Delete</button></td>
             </tr>
 		{% endfor %}

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Edit Club</h1>
-<form method="post" action="/clubs/{{club.id}}/edit/">
+<form method="post" action="/ownerclubs/{{club.id}}/edit/">
     {% csrf_token %}
     <table>
         {{form}}

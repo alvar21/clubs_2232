@@ -189,7 +189,7 @@ class MembershipView(generic.ListView):
 	    return context
 
 @login_required
-def membership_edit(request, pk, id):
+def owner_membership_edit(request, pk, id):
 	instance = Membership.objects.get(member=pk, club=id)
 	club = Club.objects.get(pk=id)
 	if club.owner == Members.objects.get(member_id=request.user.id):
@@ -200,7 +200,7 @@ def membership_edit(request, pk, id):
 			    return redirect('/ownerclub/%s/members' % id)
 	    else:
 		    form = MembershipForm(instance = instance)
-		    return render_to_response('members/membership_edit.html', {'form': form, 'membership': instance}, context_instance=RequestContext(request))
+		    return render_to_response('members/owner_membership_edit.html', {'form': form, 'membership': instance}, context_instance=RequestContext(request))
 	else:
 		return redirect('/unauthorised')
 
@@ -239,7 +239,14 @@ def owner_member_edit(request, pk, pk2):
 	else:
 		return redirect('/unauthorised')
 
-	
+@login_required
+def owner_member_kick(request, pk, pk2):
+	if (request.user.id == Club.objects.get(pk=pk).owner.member_id and Membership.objects.filter(club_id=pk, member_id=pk2).exists()) or request.user.is_staff:
+		Membership.objects.filter(club_id=pk, member_id=pk2).delete()
+		return HttpResponseRedirect('/ownerclub/%s/members/' % pk)
+	else:
+		return redirect('/unauthorised')
+
 class OwnerClubsView(generic.ListView):
 	model = Club
 	template_name = 'clubs/clubs.html'
@@ -255,7 +262,7 @@ class OwnerClubView(generic.DetailView):
     template_name = 'clubs/owner_club.html'
 
 @login_required
-def club_edit(request, pk):
+def owner_club_edit(request, pk):
     instance = Club.objects.get(pk=pk)
     if instance.owner == Members.objects.get(member_id=request.user.id) or request.user.is_staff:
 	    if request.method == "POST":
@@ -265,7 +272,7 @@ def club_edit(request, pk):
 		    return redirect('/ownerclubs/%s' % pk)
 	    else:
 		form = ClubForm(instance = instance)
-		return render_to_response('clubs/club_edit.html', {'form': form, 'club': Club.objects.get(pk=pk)}, context_instance=RequestContext(request))
+		return render_to_response('clubs/owner_club_edit.html', {'form': form, 'club': Club.objects.get(pk=pk)}, context_instance=RequestContext(request))
     else:
 	return redirect('/unauthorised')
 
@@ -284,4 +291,77 @@ class AdminMembersView(generic.ListView):
     def get_queryset(self):
         return Members.objects.order_by('first_name')
 
+class AdminClubMembersView(generic.ListView):
+	model = Members
+	template_name = 'members/members.html'
+    
+	def get_context_data(self, **kwargs):
+		context = super(AdminClubMembersView, self).get_context_data(**kwargs)
+		mem = Membership.objects.filter(club_id=self.kwargs['pk'])
+		mems = []
+		for m in mem:
+			mems.append(Members.objects.get(member_id=m.member_id))
+		context['adminclubmembers'] = sorted(mems)
+		context['club'] = Club.objects.filter(id=self.kwargs['pk'])
+		return context
+
+class AdminClubView(generic.DetailView):
+    model = Club
+    template_name = 'clubs/admin_club.html'
+
+@login_required
+def admin_club_edit(request, pk):
+    instance = Club.objects.get(pk=pk)
+    if instance.owner == Members.objects.get(member_id=request.user.id) or request.user.is_staff:
+	    if request.method == "POST":
+		form = ClubForm(request.POST, instance = instance)
+		if form.is_valid():
+		    club = form.save()
+		    return redirect('/admin/clubs/%s' % pk)
+	    else:
+		form = ClubForm(instance = instance)
+		return render_to_response('clubs/admin_club_edit.html', {'form': form, 'club': Club.objects.get(pk=pk)}, context_instance=RequestContext(request))
+    else:
+	return redirect('/unauthorised')
+
+@login_required
+def admin_membership_edit(request, pk, id):
+	instance = Membership.objects.get(member=pk, club=id)
+	club = Club.objects.get(pk=id)
+	if club.owner == Members.objects.get(member_id=request.user.id) or request.user.is_staff:
+	    if request.method == "POST":
+		    form = MembershipForm(request.POST, instance = instance)
+		    if form.is_valid():
+			    membership = form.save()
+			    return redirect('/admin/clubs/%s/members' % id)
+	    else:
+		    form = MembershipForm(instance = instance)
+		    return render_to_response('members/admin_membership_edit.html', {'form': form, 'membership': instance}, context_instance=RequestContext(request))
+	else:
+		return redirect('/unauthorised')
+
+@login_required
+def admin_member_edit(request, pk, pk2):
+	instance = Members.objects.get(member_id=pk2)
+	if (request.user.id == Club.objects.get(pk=pk).owner.member_id and Membership.objects.filter(club_id=pk, member_id=pk2).exists()) or request.user.is_staff:
+		if request.method == 'POST':
+			form = MemberForm(data=request.POST, instance=instance, user=request.user)
+			if form.is_valid():
+				form.save()
+				return HttpResponseRedirect('/admin/clubs/%s/members/' % pk)
+			else:
+				print "something went wrong"
+		else:
+			form = MemberForm(instance=instance, user=request.user)
+			return render_to_response('members/admin_member_edit.html',  {'form' : form, 'club': Club.objects.get(pk=pk), 'member': Members.objects.get(member_id=pk2)}, context_instance=RequestContext(request))
+	else:
+		return redirect('/unauthorised')
+
+@login_required
+def admin_member_kick(request, pk, pk2):
+	if (request.user.id == Club.objects.get(pk=pk).owner.member_id and Membership.objects.filter(club_id=pk, member_id=pk2).exists()) or request.user.is_staff:
+		Membership.objects.filter(club_id=pk, member_id=pk2).delete()
+		return HttpResponseRedirect('/admin/clubs/%s/members/' % pk)
+	else:
+		return redirect('/unauthorised')
 

@@ -11,7 +11,7 @@
         <strong>Type:</strong> {{ club.club_type }}
     </p>
     <p>
-        <strong>Members:</strong> {{ club.number_of_members }}<a href="/ownerclub/{{ club.id }}/members/"> List</a>
+        <strong>Members:</strong> {{ club.number_of_members }}<a href="/admin/clubs/{{ club.id }}/members/"> List</a>
     </p>
     <p>
         <strong>Creation date:</strong> {{ club.creation_date }}
@@ -44,7 +44,7 @@
 		</a>   
 	</p>
 	</p>
-		<a href="/ownerclubs/{{club.id}}/edit/"><button>Edit</button></a> 
+		<a href="/admin/clubs/{{club.id}}/edit/"><button>Edit</button></a> 
 		<a href="/clubs/delete/{{ club.id }}"><button>Delete</button></a>   
 	<p>
 {% endblock %}
