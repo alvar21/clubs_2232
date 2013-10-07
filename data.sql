@@ -206,3 +206,11 @@ insert into clubs_members values (98, 'Michael', 'Jackson', 'michael_jackson@gma
 insert into clubs_members values (99, 'Nathaniel', 'Trail', 'nathaniel_trail@gmail.com', NULL, NULL, NULL);
 insert into clubs_members values (100, 'Nathan', 'Scott', 'nathan_scott@gmail.com', NULL, NULL, NULL);
 
+-- clubs (ownerID, name, club_type, number_of_members, creation_date, location_lat, location_long, address, contact_number, email, fb, numberoflikes, description)
+insert into clubs values (3, "Melville Bowling Club", "Lawn Bowls", 0, 2000-10-10, -32.0302944, 115.8177646, "592 Canning Hwy, Alfred Cove WA 6154", 93303370, "mbcinc@iinet.net.au", NULL, NULL, 0, NULL); 
+insert into clubs values (4, "Air Force Association Club", "Aviation", 0, 1929-04-25, -32.0671284, 115.8580914, "Bullcreek Drive, Bullcreek WA 6149", 93114460, "jmurray@raafwa.org.au", NULL, NULL, 0, NULL);
+insert into clubs values (5, "University Club of Western Australia", "University", 0, , -31.9785392, 115.8197343, "35 Stirling Hwy, Crawley WA 6009"  64888770, "gellis@universityclub.uwa.edu.au", NULL, NULL, 0, NULL);
+insert into clubs values (7, "Applecross Mt Pleasant Sportsmens Association", "Sports Association", 0, -32.0248508, 115.8399757, "Coogee Rd, Ardross WA 6153" 93645401, "ampsa@gmail.com", NULL, NULL, 0, NULL);
+insert into clubs values (10, "Applecross Tennis Club", "Tennis", 0, -32.006939, 115.836765, "32 The Strand Applecross WA 6153", 93642345, "axtennis@gmail.com", NULL, NULL, 0, NULL);
+insert into clubs values (12, "Cockburn Fremantle Pistol Club", "Shooting", 0, -32.134259, 115.895706, "886 Warton Rd Banjup WA 6164" 0448234325, "stymorham@gmail.com", NULL, NULL, 0, NULL);
+insert into clubs values (15, "Gosnells Golf Club", "Golf", 0, -32.1022635, 115.9295174, "Warton Rd, Canning Vale WA 6155", "accounts@gosnellsgc.com.au", NULL, NULL, 0, NULL);   
