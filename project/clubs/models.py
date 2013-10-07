@@ -30,7 +30,7 @@ def make_sure_member_is_added_on_user_created(sender, **kwargs):
 
 class Club(models.Model):
 	owner = models.ForeignKey(Members, unique=False)
-	name = models.CharField(max_length=50)
+	name = models.CharField(max_length=100)
 	club_type = models.CharField(max_length=50)
 	number_of_members = models.IntegerField(default=0)
 	creation_date = models.DateField(auto_now=True, auto_now_add=True)
