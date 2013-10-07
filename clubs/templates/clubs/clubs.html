@@ -2,6 +2,15 @@
 {% block content %}
 {% if clubs %}
 <h1>Clubs</h1> 
+    <!-- http://stackoverflow.com/questions/261223/how-do-i-use-css-in-django -->
+
+    <form action="get" class="searchform" action="/search_clubs/">
+        <input type="text" class="field s" name="q" 
+            value="Search keywords..." 
+            onfocus="if (this.value == 'Search keywords...') {this.value = '';}" 
+            onblur="if (this.value == '') {this.value = 'Search keywords...';}">
+        <input type="submit" value="Search"/>
+    </form>
     <table class="table table-striped">
         <thead>
             <tr>

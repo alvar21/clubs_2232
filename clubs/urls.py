@@ -29,8 +29,7 @@ urlpatterns = patterns('',
 	url(r'^ownerclubs/(?P<pk>\d+)/edit/$', views.club_edit, name='club_edit'),
 
 	# Search view
-    url(r'^search/$', views.search_clubs, name='search'),
-
+    url(r'^clubs/get?q=(?P<pk>\d+)/$', views.search_clubs, name='search_clubs'),
 )
 
 
