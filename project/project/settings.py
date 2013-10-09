@@ -9,6 +9,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'ec2-54-252-183-97.ap-southeast-2.compute.amazonaws.com',
+        'INDEX_NAME': 'haystack',
+    },
+}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -116,6 +124,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
 	'clubs',
 	'stats',
+    'haystack',
 	'django.contrib.auth',
 	'django.contrib.messages', 
 	'django.contrib.staticfiles',
