@@ -1,0 +1,27 @@
+There is an admin account created for testing of privileges. 
+It is also registered as a member, able to join/register clubs etc.
+username: admin123 
+password: 123
+
+
+Install geopy
+sudo easy_install geopy
+
+Install haystack
+sudo easy_install django-haystack
+
+Install Elasticsearch
+# On Mac OS X...
+brew install elasticsearch
+
+# On Ubuntu...
+apt-get install elasticsearch
+
+# Then start via:
+elasticsearch -f -D es.config=<path to YAML config>
+
+# Example:
+elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.90.0/config/elasticsearch.yml
+
+Install pyelasticsearch (an Elasticsearch binding)
+sudo easy_install pyelasticsearch

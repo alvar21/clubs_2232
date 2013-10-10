@@ -1,12 +1,11 @@
 #TODO
-1. Haystack Search (Edwin)
-2. UML - Check BCNF/4NF (Alvar)
-3. Deployment to Server (Alvar)
-4. Installation (Alvar)
-5. Add Recruiting Members Field (Boolean) to Club Table (Edwin)
-
-
-##Database Testing List - WIP
+1. Add Recruiting Members Field (Boolean) to Club Table (Edwin)
+2. Haystack Search (Edwin)
+3. Signal for geopy when addresses are changed (Edwin)
+4. UML - Check BCNF/4NF (Alvar)
+5. Setup Installation file (Alvar)
+6. Deployment to Server (Alvar)
+7. Database Testing List - WIP (Ian and William)
 * Register as a user of the system (end user registration should only be possible)
 * Register a club with all details completed.
 
@@ -66,10 +65,10 @@ i. On creation of a club, the current user will be the owner of the club.
 * i. There is a trigger that updates the user table correspondingly to the edited member info.
 * ii. There are two triggers in the database to update the number of members whenever a user joins or quits that club.
 * iii. There is a trigger to check if after a club is deleted, the owner of that club still owns other clubs. If yes, do not delete him from the owner group. If no, delete him from the owner group. 
-* * The owner group determines whether the user has access to the owner drop down bar. 
+* The owner group determines whether the user has access to the owner drop down bar. 
 
 ##SIGNALS:
-i. A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
+* i. A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
 
 ##GROUPS:
 * i. Owners
