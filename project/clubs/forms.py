@@ -47,3 +47,4 @@ class ClubForm(forms.ModelForm):
 		fields = ('name', 'club_type', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
 
 
+

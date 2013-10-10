@@ -268,8 +268,13 @@ def owner_club_edit(request, pk):
 	    if request.method == "POST":
 		form = ClubForm(request.POST, instance = instance)
 		if form.is_valid():
-		    club = form.save()
-		    return redirect('/ownerclubs/%s' % pk)
+			g = geocoders.GoogleV3()
+			place, (lat, lng) = g.geocode(instance.address)
+			instance.address = place
+			instance.location_latitude = lat
+			instance.location_longtitude = lng
+			club = form.save()
+			return redirect('/ownerclubs/%s' % pk)
 	    else:
 		form = ClubForm(instance = instance)
 		return render_to_response('clubs/owner_club_edit.html', {'form': form, 'club': Club.objects.get(pk=pk)}, context_instance=RequestContext(request))
@@ -316,8 +321,13 @@ def admin_club_edit(request, pk):
 	    if request.method == "POST":
 		form = ClubForm(request.POST, instance = instance)
 		if form.is_valid():
-		    club = form.save()
-		    return redirect('/admin/clubs/%s' % pk)
+			g = geocoders.GoogleV3()
+			place, (lat, lng) = g.geocode(instance.address)
+			instance.address = place
+			instance.location_latitude = lat
+			instance.location_longtitude = lng
+			club = form.save()
+			return redirect('/admin/clubs/%s' % pk)
 	    else:
 		form = ClubForm(instance = instance)
 		return render_to_response('clubs/admin_club_edit.html', {'form': form, 'club': Club.objects.get(pk=pk)}, context_instance=RequestContext(request))
@@ -364,4 +374,5 @@ def admin_member_kick(request, pk, pk2):
 		return HttpResponseRedirect('/admin/clubs/%s/members/' % pk)
 	else:
 		return redirect('/unauthorised')
+
 
