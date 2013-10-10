@@ -11,8 +11,8 @@ from django.template import Context
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 
+
 def home(request):
-	name = "Edwin"
 	return render_to_response('home.html', {}, context_instance=RequestContext(request))
 
 class ClubsView(generic.ListView):
@@ -56,12 +56,15 @@ def LikeClubView(request, pk):
 @login_required
 def join_club(request, pk):
 	club = Club.objects.get(pk=pk)
-	mem = Members.objects.get(pk=request.user.id)
-	if Membership.objects.filter(member=mem, club=club).exists():
+	if club.recruiting_members == True:
+		mem = Members.objects.get(pk=request.user.id)
+		if Membership.objects.filter(member=mem, club=club).exists():
+			return HttpResponseRedirect('/clubs/join_fail/%s' % pk)
+		if pk:
+			mem = Membership.objects.create(member=mem, club=club)
+			return HttpResponseRedirect('/clubs/join/success/%s' % pk)
+	else:
 		return HttpResponseRedirect('/clubs/join_fail/%s' % pk)
-	if pk:
-		mem = Membership.objects.create(member=mem, club=club)
-		return HttpResponseRedirect('/clubs/join/success/%s' % pk)
 
 @login_required
 def quit_club(request, pk):
@@ -268,12 +271,15 @@ def owner_club_edit(request, pk):
 	    if request.method == "POST":
 		form = ClubForm(request.POST, instance = instance)
 		if form.is_valid():
-			g = geocoders.GoogleV3()
-			place, (lat, lng) = g.geocode(instance.address)
-			instance.address = place
-			instance.location_latitude = lat
-			instance.location_longtitude = lng
-			club = form.save()
+			try:
+				g = geocoders.GoogleV3()
+				place, (lat, lng) = g.geocode(instance.address)
+				instance.address = place
+				instance.location_latitude = lat
+				instance.location_longtitude = lng
+				club = form.save()
+			except ValueError:
+				return redirect('/ownerclubs/%s/edit' % pk)
 			return redirect('/ownerclubs/%s' % pk)
 	    else:
 		form = ClubForm(instance = instance)
@@ -321,12 +327,15 @@ def admin_club_edit(request, pk):
 	    if request.method == "POST":
 		form = ClubForm(request.POST, instance = instance)
 		if form.is_valid():
-			g = geocoders.GoogleV3()
-			place, (lat, lng) = g.geocode(instance.address)
-			instance.address = place
-			instance.location_latitude = lat
-			instance.location_longtitude = lng
-			club = form.save()
+			try:
+				g = geocoders.GoogleV3()
+				place, (lat, lng) = g.geocode(instance.address)
+				instance.address = place
+				instance.location_latitude = lat
+				instance.location_longtitude = lng
+				club = form.save()
+			except ValueError:
+				return redirect('/admin/clubs/%s/edit' % pk)
 			return redirect('/admin/clubs/%s' % pk)
 	    else:
 		form = ClubForm(instance = instance)

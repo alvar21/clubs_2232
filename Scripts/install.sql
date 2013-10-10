@@ -102,9 +102,10 @@ ALTER TABLE `clubs_members` ADD CONSTRAINT `member_id_refs_id_3a1273e8` FOREIGN 
 CREATE TABLE `clubs_club` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `owner_id` integer NOT NULL,
-    `name` varchar(50) NOT NULL,
+    `name` varchar(100) NOT NULL,
     `club_type` varchar(50) NOT NULL,
     `number_of_members` integer NOT NULL,
+    `recruiting_members` bool NOT NULL,
     `creation_date` date NOT NULL,
     `location_latitude` double precision,
     `location_longtitude` double precision,

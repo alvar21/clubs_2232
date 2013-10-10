@@ -5,7 +5,7 @@ class ClubRegForm(forms.ModelForm):
 	
 	class Meta:
 		model = Club
-		fields = ('name', 'club_type', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
+		fields = ('name', 'club_type', 'recruiting_members', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
 		
 class MemberForm(forms.ModelForm):
 
@@ -44,7 +44,7 @@ class ClubForm(forms.ModelForm):
 
     class Meta:
 		model = Club
-		fields = ('name', 'club_type', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
+		fields = ('name', 'club_type', 'recruiting_members', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
 
 
 

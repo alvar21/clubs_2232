@@ -5,8 +5,9 @@ from django.db.models.signals import post_save
 from django.db.models.signals import pre_save
 from django.dispatch import receiver 
 from geopy import geocoders
-
+from django.shortcuts import *
 import logging
+
 logr = logging.getLogger(__name__)
 
 class Members(models.Model):
@@ -33,6 +34,7 @@ class Club(models.Model):
 	name = models.CharField(max_length=100)
 	club_type = models.CharField(max_length=50)
 	number_of_members = models.IntegerField(default=0)
+	recruiting_members = models.BooleanField()
 	creation_date = models.DateField(auto_now=True, auto_now_add=True)
 	location_latitude = models.FloatField(blank=True, null=True)
 	location_longtitude = models.FloatField(blank=True, null=True)
@@ -51,12 +53,15 @@ class Club(models.Model):
 def add_coordinates(sender, **kwargs):
 	if kwargs.get('created', False):
 		c = Club.objects.get(id=kwargs.get('instance').id)
-		g = geocoders.GoogleV3()
-		place, (lat, lng) = g.geocode(c.address)
-		c.address = place
-		c.location_latitude = lat
-		c.location_longtitude = lng
-		c.save()
+		try:
+			g = geocoders.GoogleV3()
+			place, (lat, lng) = g.geocode(c.address)
+			c.address = place
+			clocation_latitude = lat
+			c.location_longtitude = lng
+			c.save()
+		except ValueError:
+			return redirect('/clubs/register/')
 
 class Membership(models.Model):
 	member = models.ForeignKey(Members)
