@@ -529,3 +529,4 @@ insert into clubs_membership values (NULL, 100, 17, '2006-08-05', '2013-10-13');
 insert into clubs_membership values (NULL, 100, 18, '2007-09-06', '2013-10-13');
 insert into clubs_membership values (NULL, 100, 19, '2008-10-07', '2013-10-13');
 insert into clubs_membership values (NULL, 100, 20, '2009-11-08', '2013-10-13');
+

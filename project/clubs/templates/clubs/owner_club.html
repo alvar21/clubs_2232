@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Club: {{ club }}</h1>
+    <h1>{{ club }}</h1>
     <p>
         <strong>Name:</strong> {{ club.name }}
     </p>
@@ -26,7 +26,8 @@
         <strong>Email:</strong> {{ club.email }}
     </p>
     <p>
-        <strong>Facebook:</strong> {{ club.facebook }}
+        <strong>Facebook:</strong> <a href="{{ club.facebook }}">Link</a>
+
     </p>
     <p>
         <strong>Twitter:</strong> {{ club.twitter }}
@@ -40,7 +41,7 @@
     <p>
         {{ club.likes }} people liked this club 
 		<a href="/clubs/like/{{ club.id }}">
-			<button>Like</button>
+			Like
 		</a>   
 	</p>
 	</p>
