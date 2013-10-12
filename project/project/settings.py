@@ -114,6 +114,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+	'haystack',
 	'clubs',
 	'stats',
 	'django.contrib.auth',
@@ -122,6 +123,7 @@ INSTALLED_APPS = (
 	'django.contrib.contenttypes',
 	'django.contrib.admin',
 	'django.contrib.sessions',
+	'django.contrib.gis',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -171,3 +173,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "clubs.context_processors.isowner",
 )
 
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr'
+        # ...or for multicore...
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}

@@ -10,6 +10,9 @@ from django.template.loader import get_template
 from django.template import Context 
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from haystack.query import SearchQuerySet
+from haystack.query import SearchQuerySet
+from haystack.utils.geo import Point, D
 
 
 def home(request):
@@ -384,4 +387,10 @@ def admin_member_kick(request, pk, pk2):
 	else:
 		return redirect('/unauthorised')
 
+def search_within_radius(request):
+	ninth_and_mass = Point(-32.0671284, 115.8580914)
+		# Within a two miles.
+	max_dist = D(mi=2)
+	sqs = SearchQuerySet().auto_query('Club').dwithin('location', ninth_and_mass, max_dist).order_by('-name')
+	return render_to_response('search/radius_search.html', {'clubs' : sqs})
 

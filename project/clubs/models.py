@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from geopy import geocoders
 from django.shortcuts import *
 import logging
+from django.contrib.gis.geos import Point
 
 logr = logging.getLogger(__name__)
 
@@ -45,6 +46,9 @@ class Club(models.Model):
 	twitter = models.CharField(max_length=50, blank=True, null=True)
 	likes = models.IntegerField(default=0)
 	description = models.CharField(max_length=200, null=True, blank=True)
+
+	def get_location(self):
+		return Point(self.location_longtitude, self.location_latitude)
 
 	def __unicode__(self):
 		return self.name	

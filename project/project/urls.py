@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'lab4.views.home', name='home'),
     url(r'^', include('clubs.urls', namespace='clubs')),
 	url(r'^', include('stats.urls', namespace='stats')),
+	url(r'^search/', include('haystack.urls')),
+
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

@@ -50,6 +50,8 @@ urlpatterns = patterns('',
 	url(r'^admin/clubs/(?P<pk>\d+)/members/(?P<pk2>\d+)/kick/$', views.admin_member_kick, name='admin_member_kick'),
 	# unauthorised view
 	url(r'^unauthorised/$', views.unauthorised, name='unauthorised'),
+	# search views
+	url(r'^searchradius/$', views.search_within_radius, name='searchradius'),
 )
 
 
