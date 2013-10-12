@@ -90,17 +90,4 @@ def password_change_done(request,
     return TemplateResponse(request, template_name, context,
                             current_app=current_app)
 
-from haystack.query import SearchQuerySet
-from haystack.utils.geo import Point, D
 
-def search_within(request):
-	ninth_and_mass = Point(-95.23592948913574, 38.96753407043678)
-	# Within a two miles.
-	max_dist = D(mi=5000)
-
-	# 'location' is the fieldname from our ``SearchIndex``...
-
-	# Do the radius query.
-	sqs = SearchQuerySet().autocomplete(content_auto=request.POST.get('search_text', '')).dwithin('location', ninth_and_mass, max_dist)
-	
-	return render_to_response('search.html', {'clubs' : sqs})

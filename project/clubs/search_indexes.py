@@ -6,6 +6,8 @@ class ClubIndex(indexes.SearchIndex, indexes.Indexable):
 	text = indexes.CharField(document=True, use_template=True)
 	club_name = indexes.CharField(model_attr='name')
 	address = indexes.CharField(model_attr='address')
+	location_latitude = models.FloatField(blank=True, null=True)
+	location_longtitude = models.FloatField(blank=True, null=True)
 	location = indexes.LocationField(model_attr='get_location')
 	type = indexes.CharField(model_attr='club_type')
 
