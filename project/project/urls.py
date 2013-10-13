@@ -31,20 +31,26 @@ urlpatterns = patterns('',
 from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView
-from haystack.utils.geo import Point, D
-
-#ninth_and_mass = Point(-95.23592948913574, 38.96753407043678)
-# Within a two miles.
-#max_dist = D(mi=200000)
-
-# 'location' is the fieldname from our ``SearchIndex``...
-
-# Do the radius query.
-#sqs = SearchQuerySet().dwithin('location', ninth_and_mass, max_dist)
+from clubs.forms import *
 
 # Without threading...
 urlpatterns += patterns('haystack.views',
-    url(r'^search/$', SearchView(
-        template='search/search.html',
+    url(r'^search/location/$', SearchView(
+        template='search/search_location.html',
+		form_class=LocationSearchForm
+    ), name='haystack_search'),
+)
+
+urlpatterns += patterns('haystack.views',
+    url(r'^search/members/$', SearchView(
+        template='search/search_members.html',
+		form_class=MembersSearchForm
+    ), name='haystack_search'),
+)
+
+urlpatterns += patterns('haystack.views',
+    url(r'^search/clubs/$', SearchView(
+        template='search/search_clubs.html',
+		form_class=ClubsSearchForm
     ), name='haystack_search'),
 )
