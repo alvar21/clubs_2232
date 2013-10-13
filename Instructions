@@ -2,4 +2,9 @@ There is an admin account created for testing of privileges. username: admin123 
 The admin account is also registered as a member, able to join/register clubs etc.
 
 Install geopy
-whoosh
+haystack
+
+1) cd to SOLR's example folder. run it by typing java -jar start.jar
+2) navigate to project's folder
+3) run python manage.py rebuild_index
+4) run python manage.py runserver
