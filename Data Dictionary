@@ -6,6 +6,7 @@ Members contains 7 attributes:
 	- member is a one-to-one field of User with a primary key
 	- first_name is a string field (with maximum length of 50)
 	- last_name is a string field (with maximum length of 50)
+	- address is a string field (with maximum length of 200)
 	- email is a string field (with maximum length of 50)
 	- facebook is a URL field (which can be null or blank)
 	- twitter is a string field (with maximum length of 50, can be null or blank)
