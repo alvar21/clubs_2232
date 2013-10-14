@@ -4,24 +4,16 @@ username: admin123
 password: 123
 
 
+https://django-haystack.readthedocs.org/en/latest/spatial.html
 Install geopy
 sudo easy_install geopy
 
 Install haystack
 sudo easy_install django-haystack
 
-Install Elasticsearch
-# On Mac OS X...
-brew install elasticsearch
-
-# On Ubuntu...
-apt-get install elasticsearch
-
-# Then start via:
-elasticsearch -f -D es.config=<path to YAML config>
-
-# Example:
-elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.90.0/config/elasticsearch.yml
-
-Install pyelasticsearch (an Elasticsearch binding)
-sudo easy_install pyelasticsearch
+In order to run search in clubs_2232:
+1) cd apache-solr-4.0.0-BETA/example/ 
+2) java -jar start.jar
+2) cd ../../project/
+3) python manage.py rebuild_index
+4) python manage.py runserver
