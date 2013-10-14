@@ -1,0 +1,5 @@
+{{ object.name }}
+{{ object.address }}
+{{ object.club_type }}
+{{ object.location_latitude }}
+{{ object.location_longtitude }}

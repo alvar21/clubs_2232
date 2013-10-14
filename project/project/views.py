@@ -89,3 +89,5 @@ def password_change_done(request,
         context.update(extra_context)
     return TemplateResponse(request, template_name, context,
                             current_app=current_app)
+
+

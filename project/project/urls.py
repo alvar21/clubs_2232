@@ -10,7 +10,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'lab4.views.home', name='home'),
     url(r'^', include('clubs.urls', namespace='clubs')),
 	url(r'^', include('stats.urls', namespace='stats')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
@@ -29,3 +28,29 @@ urlpatterns = patterns('',
 	url(r'^accounts/change_password_done/$', 'project.views.password_change_done'),
 )
 
+from haystack.forms import ModelSearchForm
+from haystack.query import SearchQuerySet
+from haystack.views import SearchView
+from clubs.forms import *
+
+# Without threading...
+urlpatterns += patterns('haystack.views',
+    url(r'^search/location/$', SearchView(
+        template='search/search_location.html',
+		form_class=LocationSearchForm
+    ), name='haystack_search'),
+)
+
+urlpatterns += patterns('haystack.views',
+    url(r'^search/members/$', SearchView(
+        template='search/search_members.html',
+		form_class=MembersSearchForm
+    ), name='haystack_search'),
+)
+
+urlpatterns += patterns('haystack.views',
+    url(r'^search/clubs/$', SearchView(
+        template='search/search_clubs.html',
+		form_class=ClubsSearchForm
+    ), name='haystack_search'),
+)

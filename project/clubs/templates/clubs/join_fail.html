@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-	<h2>You are already in this club!</h2>
+	<h2>Failed to join!</h2>
+	<p>You are already in this club or the club isn't recruiting at the moment.</p>
 	<p>Click <a href="/myclubs/{{ club.id }}">here</a> to return to the club.</p>
 {% endblock %} 

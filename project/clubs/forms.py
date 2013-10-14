@@ -1,11 +1,70 @@
 from django import forms
 from models import *
+from haystack.forms import SearchForm
+from haystack.utils.geo import Point, D
+
+class ClubsSearchForm(SearchForm):
+	q = forms.CharField(label="Name", max_length=255, required=False)
+		
+	def search(self):
+		if not self.is_valid():
+			return self.no_query_found()
+
+		if not self.cleaned_data.get('q'):
+			return self.no_query_found()
+
+		sqs = self.searchqueryset.auto_query(self.cleaned_data['q'])
+
+		if self.load_all:
+			sqs = sqs.load_all()
+			return sqs
+
+class LocationSearchForm(SearchForm):
+	q = forms.CharField(label="Address", max_length=255, required=True)
+	radius = forms.IntegerField(label="Radius (miles)", required=True)
+		
+	def search(self):
+		if not self.is_valid():
+			return self.no_query_found()
+
+		if not self.cleaned_data.get('q'):
+			return self.no_query_found()
+
+		sqs = self.searchqueryset.all()
+
+		if not sqs.filter(address__contains=self.cleaned_data.get('q')):
+			return self.no_query_found()
+
+		g = geocoders.GoogleV3()
+		place, (lat, lng) = g.geocode(self.cleaned_data['q'])
+		max_dist = D(mi=self.cleaned_data['radius'])
+		sqs = sqs.dwithin('location', Point(lng, lat), max_dist)
+
+		if self.load_all:
+			sqs = sqs.load_all()
+			return sqs
+
+class MembersSearchForm(SearchForm):
+	q = forms.CharField(label="Name", max_length=255, required=False)
+		
+	def search(self):
+		if not self.is_valid():
+			return self.no_query_found()
+
+		if not self.cleaned_data.get('q'):
+			return self.no_query_found()
+
+		sqs = self.searchqueryset.auto_query(self.cleaned_data['q'])
+
+		if self.load_all:
+			sqs = sqs.load_all()
+			return sqs
 
 class ClubRegForm(forms.ModelForm):
 	
 	class Meta:
 		model = Club
-		fields = ('name', 'club_type', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
+		fields = ('name', 'club_type', 'recruiting_members', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
 		
 class MemberForm(forms.ModelForm):
 
@@ -44,7 +103,7 @@ class ClubForm(forms.ModelForm):
 
     class Meta:
 		model = Club
-		fields = ('name', 'club_type', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
+		fields = ('name', 'club_type', 'recruiting_members', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
 
 
 

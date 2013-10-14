@@ -37,16 +37,14 @@
                         </li>
 							{% endif %}
                         </li>
-							{% for group in user.groups.all %}
-							{% if group.name == 'owner' %}
+							{% if isowner %}
 						<li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Owner<b class="caret"></b></a>
                             <ul class="dropdown-menu">
 								<li><a href="{% url 'clubs:owner_clubs' %}">Clubs</a></li>
                             </ul>
                         </li>
-							{% endif%}
-							{% endfor %}
+							{% endif %}
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Clubs<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -61,6 +59,14 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Members<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'clubs:members' %}">All Members</a></li>
+                            </ul>
+                        </li>
+						<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Search<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+								<li><a href="/search/clubs/">Clubs</a></li>
+                                <li><a href="/search/location/">Location</a></li>
+								<li><a href="/search/members/">Members</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
