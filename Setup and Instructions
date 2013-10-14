@@ -10,6 +10,9 @@ sudo easy_install geopy
 Install haystack
 sudo easy_install django-haystack
 
+Install brew
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
 Install Elasticsearch
 # On Mac OS X...
 brew install elasticsearch
