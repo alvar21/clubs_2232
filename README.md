@@ -6,6 +6,7 @@
 5. Setup Installation file (Alvar)
 6. Deployment to Server (Alvar)
 7. Database Testing List - WIP (Ian and William)
+
 ### Registration
 	- Register as a user of the system (end user registration should only be possible)
 	- Register a club with all details completed.
