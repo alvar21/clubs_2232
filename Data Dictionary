@@ -1,0 +1,35 @@
+Data dictionary documentation
+
+The sports and recreation database contains three tables: Members, Club and Membership
+
+Members contains 7 attributes:
+	- member is a one-to-one field of User with a primary key
+	- first_name is a string field (with maximum length of 50)
+	- last_name is a string field (with maximum length of 50)
+	- address is a string field (with maximum length of 200)
+	- email is a string field (with maximum length of 50)
+	- facebook is a URL field (which can be null or blank)
+	- twitter is a string field (with maximum length of 50, can be null or blank)
+	- interests is a string field (with maximum length of 200, can be null or blank)
+	
+Club contains 15 attributes:
+	- owner is a foreign key of Members
+	- name is a string field (with maximum length of 100)
+	- club_type is a string field (with maximum length of 50)
+	- number_of_members is an integer field (with a default value of 0)
+	- recruiting_members is a boolean field
+	- creation_date is a date field (automatically generated when a club is created)
+	- location_latitude is a floating point value (which can be null or blank)
+	- location_longitude is a floating point value (which can be null or blank)
+	- address is a string field (with maximum length of 200)
+	- contact_number is a string field (with maximum length of 50)
+	- facebook is a URL field (which can be null or blank)
+	- twitter is a string field (with maximum length of 50, can be null or blank)
+	- likes is an integer field (with a default value of 0)
+	- description is a string field (with maximum length of 200, can be null or blank)
+	
+Membership contains 4 attributes
+	- member is a foreign key of Members
+	- club is a foreign key of Club
+	- date_joined is a date field (automatically generated when a member joins a club)
+	- date_last_paid is a date field (automatically generated to when a member joins a club, can also be null)
