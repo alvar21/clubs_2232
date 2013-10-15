@@ -6,6 +6,7 @@
 5. Unliking clubs
 6. Showing a message for a search which returns no results
 7. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view
+8. Add "for dummy users, user id: firstname_lastname password: 123" to home page
 
 ### Registration
 	- Register as a user of the system (end user registration should only be possible)
