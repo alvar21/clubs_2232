@@ -3,7 +3,9 @@
 2. Setup Installation file (Alvar)
 3. Deployment to Server (Alvar)
 4. Database Testing List - WIP (Ian and William)
-5. ##Unliking clubs??
+5. Unliking clubs
+6. Showing a message for a search which returns no results
+7. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view
 
 ### Registration
 	- Register as a user of the system (end user registration should only be possible)
@@ -51,8 +53,8 @@
 ##FEATURES
 * i. Users are able to create/join/quit a club.
 * ii. Once a new club is created, the current user would be the owner.
-* iii. Able to list members of a club (at the club's view)
-* iv. Able to view a member's membership information (last paid, date joined)
+* iii. Able to list members of a club (via club's view)
+* iv. (?) Able to view a member's membership information (last paid, date joined)
 * v. Owners are able to edit their members' membership information (last paid)
 * vi. Admins are able to edit/delete a club.
 * vii. Various statistics provided.
@@ -60,26 +62,26 @@
 * ix. Able to list the clubs a member joined.
 * x. Admins and owners are able to edit members' info.
 * xi. Unauthorised page pops out every time tries to do something outside their given powers.
+* xii. If an owner quits a club, he may not be a member of the club, but he will still own the club.
 
 ##Weaknesses
 1. Default users (users with username firstname_lastname) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
-3. If an owner quits a club, he may not be a member of the club, but he will still own the club.
 
 Notes:
 * i. On creation of a club, the current user will be the owner of the club.
 * ii. Some members may not choose to reveal their addresses, so we give them the option to add their address to our databse by editing their information on the member edit page, or to not do so.
 
 ##TRIGGERS:
-* i. There is a trigger that updates the user table correspondingly to the edited member info.
-* ii. A trigger activated whenever a membership entry is added into the database. It will update the club's entry in stats_membersperclub table and update the number of members of the club the member joined.
-* iii. A trigger activated whenever a membership entry is deleted the database. It will update the stats of current number of users in the database and update the number of members of the club the member left.
-* iv. On club creation, there is a trigger to update the number of clubs categorised by their types.
-* v. On club deletion, there is a trigger to update the number of clubs categorised by their types and delete its entry from stats_membersperclub table.
-* vi. A trigger to update the total number of users when a user is registered.
+* i. On Members table update, the Users table will be updated correspondingly.
+* ii. On membership entry addition, an update to the club's entry in stats_membersperclub table and an update to the number of members who have joined the club will be triggered.
+* iii. On membership entry deletion, an update to the stats of current number of users in the database and an update to the number of members of the club will be triggered.
+* iv. On club creation, an update to the number of clubs per club type will be triggered.
+* v. On club deletion, an update to the number of clubs per club type and a deletion of its entry from stats_membersperclub table will be triggered.
+* vi. On user registration, an update to the total number of users will be triggered.
 * 
-##SIGNALS:
-* i. A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
-* ii. A signal to update the coordinates of the club's location whenever its address is edited.
+##SIGNALS (django database triggers):
+* i. A signal is triggered on creation of a new user to create a member entry with the same id as the primary key of the created user. The first_name, last_name, email correspond as well.
+* ii. A signal is triggered on address edition to update the coordinates of the club's location.
 
 
