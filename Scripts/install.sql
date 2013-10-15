@@ -221,6 +221,7 @@ delimiter |
 create trigger ClubDelete
 after delete on clubs_club
 for each row
+begin
 delete from stats_membersperclub
 where clubid = old.id;
 update stats_clubs
