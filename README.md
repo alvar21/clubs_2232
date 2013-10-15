@@ -53,13 +53,13 @@
 ##FEATURES
 * i. Users are able to create/join/quit a club.
 * ii. Once a new club is created, the current user would be the owner.
-* iii. Able to list members of a club (via club's view)
-* iv. (?) Able to view a member's membership information (last paid, date joined)
+* iii. Able to list members of a club.
+* iv. Able to view a member's membership information (last paid, date joined)
 * v. Owners are able to edit their members' membership information (last paid)
 * vi. Admins are able to edit/delete a club.
 * vii. Various statistics provided.
 * viii. Coordinates can be retrieved from address during club registration automatically.
-* ix. Able to list the clubs a member joined.
+* ix. Able to list the clubs a member joined (Clubs > My Clubs).
 * x. Admins and owners are able to edit members' info.
 * xi. Unauthorised page pops out every time tries to do something outside their given powers.
 * xii. If an owner quits a club, he may not be a member of the club, but he will still own the club.
@@ -68,7 +68,7 @@
 1. Default users (users with username firstname_lastname) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
 
-Notes:
+###Notes:
 * i. On creation of a club, the current user will be the owner of the club.
 * ii. Some members may not choose to reveal their addresses, so we give them the option to add their address to our databse by editing their information on the member edit page, or to not do so.
 
@@ -79,7 +79,7 @@ Notes:
 * iv. On club creation, an update to the number of clubs per club type will be triggered.
 * v. On club deletion, an update to the number of clubs per club type and a deletion of its entry from stats_membersperclub table will be triggered.
 * vi. On user registration, an update to the total number of users will be triggered.
-* 
+
 ##SIGNALS (django database triggers):
 * i. A signal is triggered on creation of a new user to create a member entry with the same id as the primary key of the created user. The first_name, last_name, email correspond as well.
 * ii. A signal is triggered on address edition to update the coordinates of the club's location.
