@@ -165,28 +165,28 @@ end;
 delimiter ;
 
 delimiter |
-create trigger InsertMembership
+create trigger NumberOfMembers1
 after insert on clubs_membership
 for each row
 begin
 update clubs_club
 set number_of_members = (select count(*) from clubs_membership where club_id = new.club_id)
 where id = new.club_id;
-if (select count(*) from stats_membersperclub where club_id = new.club_id) = 0 then
+if (select count(*) from stats_membersperclub where clubid = new.club_id) = 0 then
 insert into stats_membersperclub values (new.club_id, 
 (select name from clubs_club where id = new.club_id),
 (select count(*) from clubs_membership where club_id = new.club_id));
-elseif (select count(*) from stats_membersperclub where club_id = new.club_id) > 0 then
+elseif (select count(*) from stats_membersperclub where clubid = new.club_id) > 0 then
 update stats_membersperclub 
 set number = (select count(*) from clubs_membership where club_id = new.club_id)
-where club_id = new.club_id;
+where clubid = new.club_id;
 end if;
 end;
 |
 delimiter ;
 
 delimiter |
-create trigger DeleteMembership
+create trigger NumberOfMembers2
 after delete on clubs_membership
 for each row
 begin
@@ -195,11 +195,10 @@ set number_of_members = (select count(*) from clubs_membership where club_id = o
 where id = old.club_id;
 update stats_membersperclub
 set number = (select count(*) from clubs_membership where club_id = old.club_id)
-where club_id = old.club_id;
+where clubid = old.club_id;
 end;
 |
 delimiter ;
-
 
 delimiter |
 create trigger ClubInsert
@@ -222,13 +221,8 @@ delimiter |
 create trigger ClubDelete
 after delete on clubs_club
 for each row
-begin
-if (select count(*) from clubs_club where owner_id = old.owner_id) = 0 then
-delete from auth_user_groups
-where user_id = old.owner_id;
-end if;
 delete from stats_membersperclub
-where club_id = old.id;
+where clubid = old.id;
 update stats_clubs
 set number = (select count(*) from clubs_club where club_type = old.club_type)
 where clubtype = old.club_type;
@@ -242,9 +236,11 @@ after insert on auth_user
 for each row
 begin
 update stats_users
-set number = (select count(*) from auth_user);
+set number = (select count(*) from auth_user)
+where current = 'void';
 end;
 |
 delimiter ;
+
 
 
