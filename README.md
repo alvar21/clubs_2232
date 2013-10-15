@@ -3,6 +3,7 @@
 2. Setup Installation file (Alvar)
 3. Deployment to Server (Alvar)
 4. Database Testing List - WIP (Ian and William)
+5. ##Unliking clubs??
 
 ### Registration
 	- Register as a user of the system (end user registration should only be possible)
@@ -66,7 +67,8 @@
 3. If an owner quits a club, he may not be a member of the club, but he will still own the club.
 
 Notes:
-i. On creation of a club, the current user will be the owner of the club.
+* i. On creation of a club, the current user will be the owner of the club.
+* ii. Some members may not choose to reveal their addresses, so we give them the option to add their address to our databse by editing their information on the member edit page, or to not do so.
 
 ##TRIGGERS:
 * i. There is a trigger that updates the user table correspondingly to the edited member info.

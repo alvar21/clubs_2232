@@ -4,7 +4,7 @@ from haystack.forms import SearchForm
 from haystack.utils.geo import Point, D
 
 class ClubsSearchForm(SearchForm):
-	q = forms.CharField(label="Club Name/Type", max_length=255, required=False)
+	q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Club Name/Type'}), max_length=255, required=False)
 		
 	def search(self):
 		if not self.is_valid():
@@ -13,15 +13,20 @@ class ClubsSearchForm(SearchForm):
 		if not self.cleaned_data.get('q'):
 			return self.no_query_found()
 
-		sqs = self.searchqueryset.auto_query(self.cleaned_data['q'])
+		sqs = self.searchqueryset.filter(club_name__contains=self.cleaned_data['q'])
+		
+		if len(sqs) == 0:
+			sqs = self.searchqueryset.filter(type__=self.cleaned_data['q'])
 
 		if self.load_all:
 			sqs = sqs.load_all()
 			return sqs
 
 class LocationSearchForm(SearchForm):
-	q = forms.CharField(label="Address/Town/Suburb", max_length=255, required=True)
-	radius = forms.IntegerField(label="Radius (miles)", required=True)
+	q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Address/Town/Suburb'}), max_length=255, required=True)
+	# a = "WA"
+	# q.append(a)
+	radius = forms.IntegerField(label="", widget=forms.TextInput(attrs={'placeholder': 'Radius (miles)'}), required=True)
 		
 	def search(self):
 		if not self.is_valid():
@@ -36,16 +41,16 @@ class LocationSearchForm(SearchForm):
 			return self.no_query_found()
 
 		g = geocoders.GoogleV3()
-		place, (lat, lng) = g.geocode(self.cleaned_data['q'])
+		place, (lat, lng) = g.geocode(self.cleaned_data['q'], exactly_one=False)[0]
 		max_dist = D(mi=self.cleaned_data['radius'])
-		sqs = sqs.dwithin('location', Point(lng, lat), max_dist)
+		sqs = sqs.auto_query('WA').dwithin('location', Point(lng, lat), max_dist)
 
 		if self.load_all:
 			sqs = sqs.load_all()
 			return sqs
 
 class MembersSearchForm(SearchForm):
-	q = forms.CharField(label="Name", max_length=255, required=False)
+	q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Name'}), max_length=255, required=False)
 		
 	def search(self):
 		if not self.is_valid():
@@ -54,7 +59,7 @@ class MembersSearchForm(SearchForm):
 		if not self.cleaned_data.get('q'):
 			return self.no_query_found()
 
-		sqs = self.searchqueryset.auto_query(self.cleaned_data['q'])
+		sqs = self.searchqueryset.filter(self.cleaned_data['q'])
 
 		if self.load_all:
 			sqs = sqs.load_all()

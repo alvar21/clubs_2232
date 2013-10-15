@@ -8,8 +8,10 @@ from django.template import RequestContext
 def isowner(request):
 	try:
 		own = Members.objects.get(member_id=request.user.id)
-		Club.objects.filter(owner=own)[0]
-		return {'isowner': own}
+		if Club.objects.filter(owner=own):
+			return {'isowner': own}
+		else:
+			return {'isowner': ''}
 	except (Members.DoesNotExist, Club.DoesNotExist):
 		return {'isowner': ''}
 

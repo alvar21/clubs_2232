@@ -100,7 +100,7 @@ def club_reg(request):
 				club = form.save(commit=False)
 				club.owner = Members.objects.get(pk=request.user.id)
 				g = geocoders.GoogleV3()
-				place, (lat, lng) = g.geocode(club.address)
+				place, (lat, lng) = g.geocode(club.address, exactly_one=False)[0]
 				club.address = place
 				club.location_latitude = lat
 				club.location_longtitude = lng
@@ -281,7 +281,7 @@ def owner_club_edit(request, pk):
 		if form.is_valid():
 			try:
 				g = geocoders.GoogleV3()
-				place, (lat, lng) = g.geocode(instance.address)
+				place, (lat, lng) = g.geocode(instance.address, exactly_one=False)[0]
 				instance.address = place
 				instance.location_latitude = lat
 				instance.location_longtitude = lng
@@ -337,7 +337,7 @@ def admin_club_edit(request, pk):
 		if form.is_valid():
 			try:
 				g = geocoders.GoogleV3()
-				place, (lat, lng) = g.geocode(instance.address)
+				place, (lat, lng) = g.geocode(instance.address, exactly_one=False)[0]
 				instance.address = place
 				instance.location_latitude = lat
 				instance.location_longtitude = lng

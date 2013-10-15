@@ -43,7 +43,7 @@ class Club(models.Model):
 	address = models.CharField(max_length=200)
 	contact_number = models.CharField(max_length=50)
 	email = models.CharField(max_length=50)
-	facebook = models.URLField(blank=True, null=True)
+	facebook =	models.URLField(blank=True, null=True)
 	twitter = models.CharField(max_length=50, blank=True, null=True)
 	likes = models.IntegerField(default=0)
 	description = models.CharField(max_length=200, null=True, blank=True)
@@ -60,7 +60,7 @@ def add_coordinates(sender, **kwargs):
 		c = Club.objects.get(id=kwargs.get('instance').id)
 		try:
 			g = geocoders.GoogleV3()
-			place, (lat, lng) = g.geocode(c.address)
+			place, (lat, lng) = g.geocode(c.address, exactly_one=False)[0]
 			c.address = place
 			clocation_latitude = lat
 			c.location_longtitude = lng
