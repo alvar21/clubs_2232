@@ -1,31 +1,32 @@
 #TODO
-1. Add Recruiting Members Field (Boolean) to Club Table (Edwin)
-2. Haystack Search (Edwin)
-3. Signal for geopy when addresses are changed (Edwin)
-4. UML - Check BCNF/4NF (Alvar)
-5. Setup Installation file (Alvar)
-6. Deployment to Server (Alvar)
-7. Database Testing List - WIP (Ian and William)
-* Register as a user of the system (end user registration should only be possible)
-* Register a club with all details completed.
+1. UML - Check BCNF/4NF (Alvar)
+2. Setup Installation file (Alvar)
+3. Deployment to Server (Alvar)
+4. Database Testing List - WIP (Ian and William)
 
-* Update club details (as a owner, correct club)
-* Update club details (as a owner, wrong club, should not be possible)
-* Update club details (as an administrator)
-* Update club details as a end user (should not be possible)
+### Registration
+	- Register as a user of the system (end user registration should only be possible)
+	- Register a club with all details completed.
 
-* Delete a club (as an owner, correct club)
-* Delete a club (as an owner, wrong club, should not be possible)
-* Delete a club (as an administrator)
-* Delete club details as a end user (should not be possible)
+### Updating club
+	- Update club details (as a owner, correct club)
+	- Update club details (as a owner, wrong club, should not be possible)
+	- Update club details (as an administrator)
+	- Update club details as a end user (should not be possible)
 
-###Search for club:
+### Club deletion
+	- Delete a club (as an owner, correct club)
+	- Delete a club (as an owner, wrong club, should not be possible)
+	- Delete a club (as an administrator)
+	- Delete club details as a end user (should not be possible)
+
+### Search for club:
 	- By name
 	- By club type
 	- By suburb
 	- By 'within radius of location'
 	
-###List details of club
+### List details of club
 	- Name
 	- Address
 	- Type
@@ -37,7 +38,13 @@
 	- Facebook page
 	- Twitter account (handle)
 	- Description
+	- List of members of club
 
+### Membership
+	- Join a club which is recruiting members
+	- Join a club which is not recruiting members (should not be possible)
+	- Quit a club not owned by the user
+	- Quit a club owned by the user
 ---
 
 ##FEATURES
@@ -51,7 +58,7 @@
 * viii. Coordinates can be retrieved from address during club registration automatically.
 * ix. Able to list the clubs a member joined.
 * x. Admins and owners are able to edit members' info.
-* xi. Authorised page pops out every time tries to do something outside their given powers.
+* xi. Unauthorised page pops out every time tries to do something outside their given powers.
 
 ##Weaknesses
 1. Default users (users with username firstname_lastname) are not able to change their usernames.
