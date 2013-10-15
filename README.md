@@ -1,13 +1,17 @@
-#TODO
+#TO-DOs 
 1. UML - Check BCNF/4NF (Alvar)
 2. Setup Installation file (Alvar)
 3. Deployment to Server (Alvar)
-4. Database Testing List - WIP (Ian and William)
-5. Unliking clubs
-6. Showing a message for a search which returns no results
-7. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view
-8. Add "for dummy users, user id: firstname_lastname password: 123" to home page
+4. Update Scripts to reflect new Relations (William)
+5. Add Users Table to Data Dictionary.txt (Ian)
+6. Database Testing List - WIP (Ian and William)
+7. Add "for dummy users, user id: firstname_lastname password: 123" to home page
+8. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view
+9. Showing a message for a search which returns no results
+10. Unliking clubs
 
+
+#Test Check List
 ### Registration
 	- Register as a user of the system (end user registration should only be possible)
 	- Register a club with all details completed.
@@ -29,6 +33,9 @@
 	- By club type
 	- By suburb
 	- By 'within radius of location'
+
+### Search for members:
+	- By name
 	
 ### List details of club
 	- Name
@@ -66,8 +73,9 @@
 * xii. If an owner quits a club, he may not be a member of the club, but he will still own the club.
 
 ##Weaknesses
-1. Default users (users with username firstname_lastname) are not able to change their usernames.
+1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
+3. Searches with no results don't render a "no results" message to keep user informed.
 
 ###Notes:
 * i. On creation of a club, the current user will be the owner of the club.
