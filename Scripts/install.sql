@@ -92,6 +92,7 @@ CREATE TABLE `clubs_members` (
     `member_id` integer NOT NULL PRIMARY KEY,
     `first_name` varchar(50) NOT NULL,
     `last_name` varchar(50) NOT NULL,
+    `address` varchar(200) NOT NULL,
     `email` varchar(50) NOT NULL,
     `facebook` varchar(200),
     `twitter` varchar(50),
