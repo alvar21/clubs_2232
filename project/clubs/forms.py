@@ -37,8 +37,8 @@ class LocationSearchForm(SearchForm):
 
 		if not sqs.filter(address__contains=self.cleaned_data.get('q')):
 			return self.no_query_found()
-                
-                address = self.cleaned_data['q'] + "WA"
+
+		address = self.cleaned_data['q'] + " WA"
 		g = geocoders.GoogleV3()
 		place, (lat, lng) = g.geocode(address, exactly_one=False)[0]
 		max_dist = D(mi=self.cleaned_data['radius'])

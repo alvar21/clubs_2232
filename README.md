@@ -72,12 +72,13 @@ Notes:
 
 ##TRIGGERS:
 * i. There is a trigger that updates the user table correspondingly to the edited member info.
-* ii. There are two triggers in the database to update the number of members whenever a user joins or quits that club.
-* iii. There is a trigger to check if after a club is deleted, the owner of that club still owns other clubs. If yes, do not delete him from the owner group. If no, delete him from the owner group. 
-* The owner group determines whether the user has access to the owner drop down bar. 
-
+* ii. A trigger activated whenever a membership entry is added into the database. It will update the club's entry in stats_membersperclub table and update the number of members of the club the member joined.
+* iii. A trigger activated whenever a membership entry is deleted the database. It will update the stats of current number of users in the database and update the number of members of the club the member left.
+* iv. On club creation, there is a trigger to update the number of clubs categorised by their types.
+* v. On club deletion, there is a trigger to update the number of clubs categorised by their types and delete its entry from stats_membersperclub table.
+* vi. A trigger to update the total number of users when a user is registered.
 ##SIGNALS:
-* i. A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
+* vii. A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
 
 ##GROUPS:
 * i. Owners
