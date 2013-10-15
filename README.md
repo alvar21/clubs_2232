@@ -5,7 +5,6 @@
 4. Update Scripts to reflect new Relations (William)
 5. Add Users Table to Data Dictionary.txt (Ian)
 6. Database Testing List - WIP (Ian and William)
-7. Add "for dummy users, user id: firstname_lastname password: 123" to home page (Alvar)
 8. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view (Alvar)
 9. Showing a message for a search which returns no results (Alvar)
 10. Unliking clubs (Alvar)
