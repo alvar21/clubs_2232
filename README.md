@@ -77,6 +77,7 @@ Notes:
 * iv. On club creation, there is a trigger to update the number of clubs categorised by their types.
 * v. On club deletion, there is a trigger to update the number of clubs categorised by their types and delete its entry from stats_membersperclub table.
 * vi. A trigger to update the total number of users when a user is registered.
+* 
 ##SIGNALS:
 * i. A signal to create a member entry with the same id to the primary key of the new user created. The first_name, last_name, email corresponds to the new user's.
 * ii. A signal to update the coordinates of the club's location whenever its address is edited.
