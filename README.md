@@ -1,11 +1,8 @@
 #TODO
-1. Add Recruiting Members Field (Boolean) to Club Table (Edwin)
-2. Haystack Search (Edwin)
-3. Signal for geopy when addresses are changed (Edwin)
-4. UML - Check BCNF/4NF (Alvar)
-5. Setup Installation file (Alvar)
-6. Deployment to Server (Alvar)
-7. Database Testing List - WIP (Ian and William)
+1. UML - Check BCNF/4NF (Alvar)
+2. Setup Installation file (Alvar)
+3. Deployment to Server (Alvar)
+4. Database Testing List - WIP (Ian and William)
 
 ### Registration
 	- Register as a user of the system (end user registration should only be possible)

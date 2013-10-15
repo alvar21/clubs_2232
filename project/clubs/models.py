@@ -15,7 +15,7 @@ class Members(models.Model):
 	member = models.OneToOneField(User, primary_key=True)
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=50)
-	address = models.CharField(max_length=200)
+	address = models.CharField(max_length=200, blank=True, null=True)
 	email = models.CharField(max_length=50)
 	facebook = models.URLField(null=True, blank=True)
 	twitter = models.CharField(max_length=50, null=True, blank=True)

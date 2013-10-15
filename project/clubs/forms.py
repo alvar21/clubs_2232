@@ -4,7 +4,7 @@ from haystack.forms import SearchForm
 from haystack.utils.geo import Point, D
 
 class ClubsSearchForm(SearchForm):
-	q = forms.CharField(label="Name", max_length=255, required=False)
+	q = forms.CharField(label="Club Name/Type", max_length=255, required=False)
 		
 	def search(self):
 		if not self.is_valid():
@@ -20,7 +20,7 @@ class ClubsSearchForm(SearchForm):
 			return sqs
 
 class LocationSearchForm(SearchForm):
-	q = forms.CharField(label="Address", max_length=255, required=True)
+	q = forms.CharField(label="Address/Town/Suburb", max_length=255, required=True)
 	radius = forms.IntegerField(label="Radius (miles)", required=True)
 		
 	def search(self):
@@ -81,7 +81,7 @@ class MemberForm(forms.ModelForm):
     class Meta:
 		model = Members
 		exclude = ('user')
-		fields = ('first_name', 'last_name', 'email', 'facebook', 'twitter', 'interests')
+		fields = ('first_name', 'last_name', 'address', 'email', 'facebook', 'twitter', 'interests')
 
 class MembershipForm(forms.ModelForm):
 
