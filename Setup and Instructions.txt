@@ -6,14 +6,21 @@ password: 123
 
 https://django-haystack.readthedocs.org/en/latest/spatial.html
 Install geopy
-sudo easy_install geopy
+$ sudo easy_install geopy
+
+Install brew
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
+Install GEOS
+brew install geos
 
 Install haystack
-sudo easy_install django-haystack
+$ sudo easy_install django-haystack
 
 In order to run search in clubs_2232:
-1) cd apache-solr-4.0.0-BETA/example/ 
-2) java -jar start.jar
-2) cd ../../project/
-3) python manage.py rebuild_index
-4) python manage.py runserver
+1) $ cd apache-solr-4.0.0-BETA/example/ 
+2) $ java -jar start.jar
+3) In another terminal window: 
+	$ cd clubs_2232/project/
+	$ python manage.py rebuild_index
+4) $ python manage.py runserver
