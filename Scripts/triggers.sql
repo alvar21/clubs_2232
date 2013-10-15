@@ -67,11 +67,6 @@ delimiter |
 create trigger ClubDelete
 after delete on clubs_club
 for each row
-begin
-if (select count(*) from clubs_club where owner_id = old.owner_id) = 0 then
-delete from auth_user_groups
-where user_id = old.owner_id;
-end if;
 delete from stats_membersperclub
 where clubid = old.id;
 update stats_clubs
