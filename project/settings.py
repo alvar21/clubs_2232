@@ -15,9 +15,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-# PRODUCTION
+# PRODUCTION BEGIN
 if os.getcwd() == "/app":
     DATABASES = { 'default': dj_database_url.config(default='postgres://localhost') }
+
+GEOS_LIBRARY_PATH = '/app/.geodjango/geos/lib/libgeos_c.so'
+
+GDAL_LIBRARY_PATH = '/app/.geodjango/gdal/lib/libgdal.so'
+# PRODUCTION END
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
