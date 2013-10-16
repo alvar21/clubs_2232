@@ -39,6 +39,7 @@ class MyClubsView(generic.ListView):
 		for m in mem:
 			club_ids.append(m.club_id)
 		context['myclubs'] = Club.objects.filter(id__in=club_ids)
+		context['membership'] = Membership.objects.filter(club_id__in=club_ids, member_id=self.request.user.id)
 		return context
 
 class MyClubView(generic.DetailView):
