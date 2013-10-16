@@ -237,8 +237,7 @@ after insert on auth_user
 for each row
 begin
 update stats_users
-set number = (select count(*) from auth_user)
-where current = 'void';
+set number = (select count(*) from auth_user);
 end;
 |
 delimiter ;
