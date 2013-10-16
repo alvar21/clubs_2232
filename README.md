@@ -1,3 +1,7 @@
+#DEPLOYMENT NOTES
+- Accessible via: http://secure-plains-7416.herokuapp.com/ 
+- git repo: git@heroku.com:secure-plains-7416.git
+
 #TO-DOs 
 1. UML - Check BCNF/4NF (Alvar)
 2. Setup Installation file (Alvar)
