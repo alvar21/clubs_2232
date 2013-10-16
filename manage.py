@@ -1,4 +1,4 @@
-#!~/clubs_2232/venv/bin/python
+#!/usr/bin/env python
 import os
 import sys
 
