@@ -20,7 +20,7 @@
                 <td>{{ club.name }}</td>
 				<td>{{ club.owner }}</td>
                 <td>{{ club.club_type }}</td>
-				<td><a href="/clubs/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
+				<td>{{ club.number_of_members }} <a href="/clubs/{{ club.id }}/members/"><button>List</button></a></td>
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
         {% for mem in membership %}
@@ -54,7 +54,7 @@
                 <td>{{ club.name }}</td>
 				<td>{{ club.owner }}</td>
                 <td>{{ club.club_type }}</td>
-				<td><a href="/clubs/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
+				<td>{{ club.number_of_members }} <a href="/clubs/{{ club.id }}/members/"><button>List</button></a></td>
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
 				{% for mem in membership %}
@@ -85,7 +85,7 @@
             <tr>
                 <td>{{ club.name }}</td>
                 <td>{{ club.club_type }}</td>
-				<td><a href="/ownerclub/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
+				<td>{{ club.number_of_members }} <a href="/ownerclub/{{ club.id }}/members/"><button>List</button></a></td>
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
 				<td><a href="/ownerclubs/{{club.id}}"><button>View</button></a></td>
@@ -114,7 +114,7 @@
                 <td>{{ club.name }}</td>
 				<td>{{ club.owner }}</td>
                 <td>{{ club.club_type }}</td>
-				<td><a href="/admin/clubs/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
+				<td>{{ club.number_of_members }} <a href="/admin/clubs/{{ club.id }}/members/"><button>List</button></a></td>
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
 				<td><a href="/admin/clubs/{{club.id}}"><button>View</button></a></td>
@@ -145,7 +145,7 @@
                 <td>{{ club.name }}</td>
 				<td>{{ club.owner }}</td>
                 <td>{{ club.club_type }}</td>
-				<td><a href="/clubs/{{ club.id }}/members/">{{ club.number_of_members }}</a></td>
+				<td>{{ club.number_of_members }} <a href="/clubs/{{ club.id }}/members/"><button>List</button></a></td>
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
 				<td><a href="/clubs/{{club.id}}"><button>View</button></a></td>
@@ -158,5 +158,4 @@
 <p>There are no clubs.</p>
 {% endif %}
 {% endblock %}
-
 
