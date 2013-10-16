@@ -3,10 +3,8 @@
 - git repo: git@heroku.com:secure-plains-7416.git
 
 #TO-DOs 
-1. UML - Check BCNF/4NF (Alvar)
 2. Setup Installation file (Alvar)
 3. Deployment to Server (Alvar)
-4. Update Scripts to reflect new Relations (William)
 5. Add Users Table to Data Dictionary.txt (Ian)
 6. Database Testing List - WIP (Ian and William)
 7. Unliking clubs (Alvar)
