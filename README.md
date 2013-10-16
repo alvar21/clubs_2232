@@ -75,7 +75,6 @@
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
-3. Searches with no results don't render a "no results" message to keep user informed.
 
 ###Notes:
 * i. On creation of a club, the current user will be the owner of the club.
