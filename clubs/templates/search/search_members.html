@@ -41,9 +41,9 @@
 					<td><a href="/member/clubs/{{ result.object.member_id }}/">List</a></td>
                 </tr>
 		</tbody>
-            {% empty %}
-                <p>No results found.</p>
             {% endfor %}
+            {% else %}
+                <p>No results found.</p>
 	{% endifequal %}
             {% if page.has_previous or page.has_next %}
                 <div>

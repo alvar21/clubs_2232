@@ -39,9 +39,9 @@
 					<td>{{ result.object.address }}
                 </tr>
 		</tbody>
-            {% empty %}
-                <p>No results found.</p>
             {% endfor %}
+            {% else %}
+                <p>No results found.</p>
 	{% endifequal %}
             {% if page.has_previous or page.has_next %}
                 <div>
@@ -55,3 +55,4 @@
         {% endif %}
     </form>
 {% endblock %}
+
