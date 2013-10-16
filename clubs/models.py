@@ -39,7 +39,7 @@ class Club(models.Model):
 	recruiting_members = models.BooleanField()
 	creation_date = models.DateField(auto_now=True, auto_now_add=True)
 	location_latitude = models.FloatField(blank=True, null=True)
-	location_longtitude = models.FloatField(blank=True, null=True)
+	location_longitude = models.FloatField(blank=True, null=True)
 	address = models.CharField(max_length=200)
 	contact_number = models.CharField(max_length=50)
 	email = models.CharField(max_length=50)
@@ -49,7 +49,7 @@ class Club(models.Model):
 	description = models.CharField(max_length=200, null=True, blank=True)
 
 	def get_location(self):
-		return Point(self.location_longtitude, self.location_latitude)
+		return Point(self.location_longitude, self.location_latitude)
 
 	def __unicode__(self):
 		return self.name	
@@ -63,7 +63,7 @@ def add_coordinates(sender, **kwargs):
 			place, (lat, lng) = g.geocode(c.address, exactly_one=False)[0]
 			c.address = place
 			clocation_latitude = lat
-			c.location_longtitude = lng
+			c.location_longitude = lng
 			c.save()
 		except ValueError:
 			return redirect('/clubs/register/')

@@ -152,7 +152,7 @@
 
     <field name="club_name" type="text_en" indexed="true" stored="true" multiValued="false" />
 
-    <field name="location_longtitude" type="float" indexed="true" stored="true" multiValued="false" />
+    <field name="location_longitude" type="float" indexed="true" stored="true" multiValued="false" />
 
     <field name="text" type="text_en" indexed="true" stored="true" multiValued="false" />
 

@@ -5,24 +5,6 @@
    <object id="ObjectNode0" class="com.horstmann.violet.ObjectNode"> 
     <void method="addChild"> 
      <object id="FieldNode0" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1298.0</double> 
-         <double>560.0</double> 
-         <double>353.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1298.0</double> 
-        <double>560.0</double> 
-        <double>353.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -30,9 +12,6 @@
        <void property="text"> 
         <string>id</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -43,24 +22,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode1" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1253.0</double> 
-         <double>580.0</double> 
-         <double>334.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1253.0</double> 
-        <double>580.0</double> 
-        <double>334.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -68,9 +29,6 @@
        <void property="text"> 
         <string>password</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -81,24 +39,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode2" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1256.0</double> 
-         <double>600.0</double> 
-         <double>216.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1256.0</double> 
-        <double>600.0</double> 
-        <double>216.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -106,9 +46,6 @@
        <void property="text"> 
         <string>last_login</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -119,24 +56,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode3" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1236.0</double> 
-         <double>620.0</double> 
-         <double>254.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1236.0</double> 
-        <double>620.0</double> 
-        <double>254.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -144,9 +63,6 @@
        <void property="text"> 
         <string>is_superuser</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -157,24 +73,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode4" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1252.0</double> 
-         <double>640.0</double> 
-         <double>253.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1252.0</double> 
-        <double>640.0</double> 
-        <double>253.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -182,9 +80,6 @@
        <void property="text"> 
         <string>username</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -195,24 +90,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode5" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1249.0</double> 
-         <double>660.0</double> 
-         <double>256.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1249.0</double> 
-        <double>660.0</double> 
-        <double>256.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -220,9 +97,6 @@
        <void property="text"> 
         <string>first_name</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -233,24 +107,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode6" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1251.0</double> 
-         <double>680.0</double> 
-         <double>254.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1251.0</double> 
-        <double>680.0</double> 
-        <double>254.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -258,9 +114,6 @@
        <void property="text"> 
         <string>last_name</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -271,24 +124,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode7" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1278.0</double> 
-         <double>700.0</double> 
-         <double>294.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1278.0</double> 
-        <double>700.0</double> 
-        <double>294.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -297,33 +132,12 @@
         <string>email</string> 
        </void> 
       </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode0"/> 
-      </void> 
       <void property="value"> 
        <void property="text"> 
         <string>CharField(max_length=75, null=False)</string> 
        </void> 
       </void> 
      </object> 
-    </void> 
-    <void property="bounds"> 
-     <object class="java.awt.geom.Rectangle2D$Double"> 
-      <void method="setRect"> 
-       <double>1000.0</double> 
-       <double>500.0</double> 
-       <double>660.0</double> 
-       <double>220.0</double> 
-      </void> 
-     </object> 
-    </void> 
-    <void property="bounds"> 
-     <void method="setRect"> 
-      <double>1000.0</double> 
-      <double>500.0</double> 
-      <double>660.0</double> 
-      <double>220.0</double> 
-     </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
@@ -342,24 +156,6 @@
    <object id="ObjectNode1" class="com.horstmann.violet.ObjectNode"> 
     <void method="addChild"> 
      <object id="FieldNode8" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>298.0</double> 
-         <double>60.0</double> 
-         <double>353.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>298.0</double> 
-        <double>60.0</double> 
-        <double>353.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -367,9 +163,6 @@
        <void property="text"> 
         <string>id</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -380,24 +173,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode9" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>274.0</double> 
-         <double>80.0</double> 
-         <double>288.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>274.0</double> 
-        <double>80.0</double> 
-        <double>288.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -405,9 +180,6 @@
        <void property="text"> 
         <string>owner</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -418,24 +190,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode10" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>277.0</double> 
-         <double>100.0</double> 
-         <double>236.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>277.0</double> 
-        <double>100.0</double> 
-        <double>236.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -443,9 +197,6 @@
        <void property="text"> 
         <string>name</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -456,24 +207,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode11" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>254.0</double> 
-         <double>120.0</double> 
-         <double>251.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>254.0</double> 
-        <double>120.0</double> 
-        <double>251.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -481,9 +214,6 @@
        <void property="text"> 
         <string>club_type</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -494,24 +224,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode12" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>186.0</double> 
-         <double>140.0</double> 
-         <double>298.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>186.0</double> 
-        <double>140.0</double> 
-        <double>298.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -519,9 +231,6 @@
        <void property="text"> 
         <string>number_of_members</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -532,24 +241,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode13" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>194.0</double> 
-         <double>160.0</double> 
-         <double>229.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>194.0</double> 
-        <double>160.0</double> 
-        <double>229.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -557,9 +248,6 @@
        <void property="text"> 
         <string>recruiting_members</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -570,24 +258,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode14" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>231.0</double> 
-         <double>180.0</double> 
-         <double>401.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>231.0</double> 
-        <double>180.0</double> 
-        <double>401.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -595,9 +265,6 @@
        <void property="text"> 
         <string>creation_date</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -608,24 +275,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode15" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>216.0</double> 
-         <double>200.0</double> 
-         <double>331.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>216.0</double> 
-        <double>200.0</double> 
-        <double>331.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -633,9 +282,6 @@
        <void property="text"> 
         <string>location_latitude</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -646,24 +292,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode16" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>206.0</double> 
-         <double>220.0</double> 
-         <double>354.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>206.0</double> 
-        <double>220.0</double> 
-        <double>354.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -671,9 +299,6 @@
        <void property="text"> 
         <string>location_longitude</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -684,24 +309,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode17" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>262.0</double> 
-         <double>240.0</double> 
-         <double>251.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>262.0</double> 
-        <double>240.0</double> 
-        <double>251.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -709,9 +316,6 @@
        <void property="text"> 
         <string>address</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -722,24 +326,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode18" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>217.0</double> 
-         <double>260.0</double> 
-         <double>288.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>217.0</double> 
-        <double>260.0</double> 
-        <double>288.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -747,9 +333,6 @@
        <void property="text"> 
         <string>contact_number</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -760,24 +343,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode19" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>278.0</double> 
-         <double>280.0</double> 
-         <double>227.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>278.0</double> 
-        <double>280.0</double> 
-        <double>227.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -785,9 +350,6 @@
        <void property="text"> 
         <string>email</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -798,24 +360,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode20" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>256.0</double> 
-         <double>300.0</double> 
-         <double>286.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>256.0</double> 
-        <double>300.0</double> 
-        <double>286.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -823,9 +367,6 @@
        <void property="text"> 
         <string>facebook</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -836,24 +377,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode21" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>273.0</double> 
-         <double>320.0</double> 
-         <double>374.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>273.0</double> 
-        <double>320.0</double> 
-        <double>374.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -861,9 +384,6 @@
        <void property="text"> 
         <string>twitter</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -874,24 +394,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode22" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>283.0</double> 
-         <double>340.0</double> 
-         <double>201.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>283.0</double> 
-        <double>340.0</double> 
-        <double>201.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -899,9 +401,6 @@
        <void property="text"> 
         <string>likes</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -912,24 +411,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode23" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>245.0</double> 
-         <double>360.0</double> 
-         <double>410.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>245.0</double> 
-        <double>360.0</double> 
-        <double>410.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -938,33 +419,12 @@
         <string>description</string> 
        </void> 
       </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode1"/> 
-      </void> 
       <void property="value"> 
        <void property="text"> 
         <string>CharField(max_length=200, null=True, blank=True)</string> 
        </void> 
       </void> 
      </object> 
-    </void> 
-    <void property="bounds"> 
-     <object class="java.awt.geom.Rectangle2D$Double"> 
-      <void method="setRect"> 
-       <double>0.0</double> 
-       <double>0.0</double> 
-       <double>660.0</double> 
-       <double>380.0</double> 
-      </void> 
-     </object> 
-    </void> 
-    <void property="bounds"> 
-     <void method="setRect"> 
-      <double>0.0</double> 
-      <double>0.0</double> 
-      <double>660.0</double> 
-      <double>380.0</double> 
-     </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
@@ -983,34 +443,13 @@
    <object id="ObjectNode2" class="com.horstmann.violet.ObjectNode"> 
     <void method="addChild"> 
      <object id="FieldNode24" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1050.0</double> 
-         <double>130.0</double> 
-         <double>335.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1050.0</double> 
-        <double>130.0</double> 
-        <double>335.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
        </void> 
        <void property="text"> 
-        <string>member</string> 
+        <string>userid</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1021,24 +460,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode25" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1039.0</double> 
-         <double>150.0</double> 
-         <double>256.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1039.0</double> 
-        <double>150.0</double> 
-        <double>256.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1046,9 +467,6 @@
        <void property="text"> 
         <string>first_name</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1059,24 +477,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode26" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1041.0</double> 
-         <double>170.0</double> 
-         <double>254.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1041.0</double> 
-        <double>170.0</double> 
-        <double>254.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1084,9 +484,6 @@
        <void property="text"> 
         <string>last_name</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1097,24 +494,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode27" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1052.0</double> 
-         <double>190.0</double> 
-         <double>251.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1052.0</double> 
-        <double>190.0</double> 
-        <double>251.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1122,9 +501,6 @@
        <void property="text"> 
         <string>address</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1135,24 +511,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode28" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1068.0</double> 
-         <double>210.0</double> 
-         <double>227.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1068.0</double> 
-        <double>210.0</double> 
-        <double>227.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1160,9 +518,6 @@
        <void property="text"> 
         <string>email</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1173,24 +528,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode29" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1046.0</double> 
-         <double>230.0</double> 
-         <double>286.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1046.0</double> 
-        <double>230.0</double> 
-        <double>286.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1198,9 +535,6 @@
        <void property="text"> 
         <string>facebook</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1211,24 +545,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode30" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1063.0</double> 
-         <double>250.0</double> 
-         <double>382.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1063.0</double> 
-        <double>250.0</double> 
-        <double>382.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1236,9 +552,6 @@
        <void property="text"> 
         <string>twitter</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1249,24 +562,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode31" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>1050.0</double> 
-         <double>270.0</double> 
-         <double>395.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>1050.0</double> 
-        <double>270.0</double> 
-        <double>395.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1275,33 +570,12 @@
         <string>interests</string> 
        </void> 
       </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode2"/> 
-      </void> 
       <void property="value"> 
        <void property="text"> 
         <string>CharField(max_length=200, null=True, blank=True)</string> 
        </void> 
       </void> 
      </object> 
-    </void> 
-    <void property="bounds"> 
-     <object class="java.awt.geom.Rectangle2D$Double"> 
-      <void method="setRect"> 
-       <double>790.0</double> 
-       <double>70.0</double> 
-       <double>660.0</double> 
-       <double>220.0</double> 
-      </void> 
-     </object> 
-    </void> 
-    <void property="bounds"> 
-     <void method="setRect"> 
-      <double>790.0</double> 
-      <double>70.0</double> 
-      <double>660.0</double> 
-      <double>220.0</double> 
-     </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
@@ -1497,27 +771,9 @@
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ObjectNode3" class="com.horstmann.violet.ObjectNode"> 
+   <object class="com.horstmann.violet.ObjectNode"> 
     <void method="addChild"> 
      <object id="FieldNode32" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>520.0</double> 
-         <double>600.0</double> 
-         <double>216.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>520.0</double> 
-        <double>600.0</double> 
-        <double>216.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1525,9 +781,6 @@
        <void property="text"> 
         <string>member</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode3"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1538,24 +791,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode33" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>545.0</double> 
-         <double>620.0</double> 
-         <double>169.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>545.0</double> 
-        <double>620.0</double> 
-        <double>169.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1563,9 +798,6 @@
        <void property="text"> 
         <string>club</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode3"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1576,24 +808,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode34" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>501.0</double> 
-         <double>640.0</double> 
-         <double>387.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>501.0</double> 
-        <double>640.0</double> 
-        <double>387.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1601,9 +815,6 @@
        <void property="text"> 
         <string>date_joined</string> 
        </void> 
-      </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode3"/> 
       </void> 
       <void property="value"> 
        <void property="text"> 
@@ -1614,24 +825,6 @@
     </void> 
     <void method="addChild"> 
      <object id="FieldNode35" class="com.horstmann.violet.FieldNode"> 
-      <void property="bounds"> 
-       <object class="java.awt.geom.Rectangle2D$Double"> 
-        <void method="setRect"> 
-         <double>485.0</double> 
-         <double>660.0</double> 
-         <double>476.0</double> 
-         <double>15.0</double> 
-        </void> 
-       </object> 
-      </void> 
-      <void property="bounds"> 
-       <void method="setRect"> 
-        <double>485.0</double> 
-        <double>660.0</double> 
-        <double>476.0</double> 
-        <double>15.0</double> 
-       </void> 
-      </void> 
       <void property="name"> 
        <void property="justification"> 
         <int>1</int> 
@@ -1640,33 +833,12 @@
         <string>date_last_paid</string> 
        </void> 
       </void> 
-      <void property="parent"> 
-       <object idref="ObjectNode3"/> 
-      </void> 
       <void property="value"> 
        <void property="text"> 
         <string>DateField(auto_now=False, auto_now_add=False, null=True)</string> 
        </void> 
       </void> 
      </object> 
-    </void> 
-    <void property="bounds"> 
-     <object class="java.awt.geom.Rectangle2D$Double"> 
-      <void method="setRect"> 
-       <double>210.0</double> 
-       <double>540.0</double> 
-       <double>760.0</double> 
-       <double>140.0</double> 
-      </void> 
-     </object> 
-    </void> 
-    <void property="bounds"> 
-     <void method="setRect"> 
-      <double>210.0</double> 
-      <double>540.0</double> 
-      <double>760.0</double> 
-      <double>140.0</double> 
-     </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
@@ -1730,7 +902,7 @@
    <object idref="FieldNode24"/> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1050.0</double> 
+     <double>1063.0</double> 
      <double>130.0</double> 
     </void> 
    </object> 

@@ -1,6 +1,6 @@
 *.log
 *.pot
-venv
-staticfiles
 *.pyc
 local_settings.py
+venv
+staticfiles

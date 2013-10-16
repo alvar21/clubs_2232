@@ -109,7 +109,7 @@ CREATE TABLE `clubs_club` (
     `recruiting_members` bool NOT NULL,
     `creation_date` date NOT NULL,
     `location_latitude` double precision,
-    `location_longtitude` double precision,
+    `location_longitude` double precision,
     `address` varchar(200) NOT NULL,
     `contact_number` varchar(50) NOT NULL,
     `email` varchar(50) NOT NULL,
@@ -139,7 +139,7 @@ CREATE TABLE `stats_users` (
 )
 ;
 CREATE TABLE `stats_clubs` (
-    `clubtype` varchar(50) NOT NULL PRIMARY KEY,
+    `club_type` varchar(50) NOT NULL PRIMARY KEY,
     `number` integer NOT NULL
 )
 ;
@@ -172,14 +172,14 @@ begin
 update clubs_club
 set number_of_members = (select count(*) from clubs_membership where club_id = new.club_id)
 where id = new.club_id;
-if (select count(*) from stats_membersperclub where clubid = new.club_id) = 0 then
+if (select count(*) from stats_membersperclub where club_id = new.club_id) = 0 then
 insert into stats_membersperclub values (new.club_id, 
 (select name from clubs_club where id = new.club_id),
 (select count(*) from clubs_membership where club_id = new.club_id));
-elseif (select count(*) from stats_membersperclub where clubid = new.club_id) > 0 then
+elseif (select count(*) from stats_membersperclub where club_id = new.club_id) > 0 then
 update stats_membersperclub 
 set number = (select count(*) from clubs_membership where club_id = new.club_id)
-where clubid = new.club_id;
+where club_id = new.club_id;
 end if;
 end;
 |
@@ -195,7 +195,7 @@ set number_of_members = (select count(*) from clubs_membership where club_id = o
 where id = old.club_id;
 update stats_membersperclub
 set number = (select count(*) from clubs_membership where club_id = old.club_id)
-where clubid = old.club_id;
+where club_id = old.club_id;
 end;
 |
 delimiter ;
@@ -205,13 +205,13 @@ create trigger ClubInsert
 after insert on clubs_club
 for each row
 begin
-if (select count(*) from stats_clubs where clubtype = new.club_type) = 0 then
-insert into stats_clubs values (new.club_type, 
-(select count(*) from clubs_club where club_type = new.club_type));
-elseif (select count(*) from stats_clubs where clubtype = new.club_type) > 0 then
-update stats_clubs
-set number = (select count(*) from clubs_club where club_type = new.club_type)
-where clubtype = new.club_type;
+if (select count(*) from stats_clubs where club_type = new.club_type) = 0 then
+	insert into stats_clubs values (new.club_type, 
+		(select count(*) from clubs_club where club_type = new.club_type));
+elseif (select count(*) from stats_clubs where club_type = new.club_type) > 0 then
+	update stats_clubs
+	set number = (select count(*) from clubs_club where club_type = new.club_type)
+	where club_type = new.club_type;
 end if;
 end;
 |
@@ -223,10 +223,10 @@ after delete on clubs_club
 for each row
 begin
 delete from stats_membersperclub
-where clubid = old.id;
+where clubclub_idid = old.id;
 update stats_clubs
 set number = (select count(*) from clubs_club where club_type = old.club_type)
-where clubtype = old.club_type;
+where club_type = old.club_type;
 end;
 |
 delimiter ;
@@ -237,11 +237,7 @@ after insert on auth_user
 for each row
 begin
 update stats_users
-set number = (select count(*) from auth_user)
-where current = 'void';
+set number = (select count(*) from auth_user);
 end;
 |
 delimiter ;
-
-
-

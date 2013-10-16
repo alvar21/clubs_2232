@@ -2,4 +2,4 @@
 {{ object.address }}
 {{ object.club_type }}
 {{ object.location_latitude }}
-{{ object.location_longtitude }}
+{{ object.location_longitude }}
