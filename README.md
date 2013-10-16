@@ -6,9 +6,8 @@
 5. Add Users Table to Data Dictionary.txt (Ian)
 6. Database Testing List - WIP (Ian and William)
 8. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view (Alvar)
-9. Showing a message for a search which returns no results (Alvar)
-10. Unliking clubs (Alvar)
-11. Change Bootstrap used (Alvar)
+9. Unliking clubs (Alvar)
+10. Change Bootstrap used (Alvar)
 
 
 #Test Check List
