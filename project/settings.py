@@ -15,15 +15,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-# PRODUCTION BEGIN
-if os.getcwd() == "/app":
-    DATABASES = { 'default': dj_database_url.config(default='postgres://localhost') }
-
-GEOS_LIBRARY_PATH = '/app/.geodjango/geos/lib/libgeos_c.so'
-
-GDAL_LIBRARY_PATH = '/app/.geodjango/gdal/lib/libgdal.so'
-# PRODUCTION END
-
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -186,7 +177,10 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
-# DATABASES['default'] =  dj_database_url.config()
+# PRODUCTION BEGIN
+# if os.getcwd() == "/app":
+#     DATABASES = { 'default': dj_database_url.config(default='postgres://localhost') }
+DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -203,3 +197,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+GEOS_LIBRARY_PATH = '/app/.geodjango/geos/lib/libgeos_c.so'
+
+GDAL_LIBRARY_PATH = '/app/.geodjango/gdal/lib/libgdal.so'
+# PRODUCTION END
