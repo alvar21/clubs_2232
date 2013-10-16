@@ -205,6 +205,7 @@ create trigger ClubInsert
 after insert on clubs_club
 for each row
 begin
+
 if (select count(*) from stats_clubs where club_type = new.club_type) = 0 then
 	insert into stats_clubs values (new.club_type, 
 		(select count(*) from clubs_club where club_type = new.club_type));
