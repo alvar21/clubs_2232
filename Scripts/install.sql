@@ -179,7 +179,7 @@ insert into stats_membersperclub values (new.club_id,
 elseif (select count(*) from stats_membersperclub where clubid = new.club_id) > 0 then
 update stats_membersperclub 
 set number = (select count(*) from clubs_membership where club_id = new.club_id)
-where clubid = new.club_id;
+where club_id = new.club_id;
 end if;
 end;
 |
@@ -195,7 +195,7 @@ set number_of_members = (select count(*) from clubs_membership where club_id = o
 where id = old.club_id;
 update stats_membersperclub
 set number = (select count(*) from clubs_membership where club_id = old.club_id)
-where clubid = old.club_id;
+where club_id = old.club_id;
 end;
 |
 delimiter ;
@@ -211,7 +211,7 @@ insert into stats_clubs values (new.club_type,
 elseif (select count(*) from stats_clubs where clubtype = new.club_type) > 0 then
 update stats_clubs
 set number = (select count(*) from clubs_club where club_type = new.club_type)
-where clubtype = new.club_type;
+where club_type = new.club_type;
 end if;
 end;
 |
@@ -226,7 +226,7 @@ delete from stats_membersperclub
 where clubid = old.id;
 update stats_clubs
 set number = (select count(*) from clubs_club where club_type = old.club_type)
-where clubtype = old.club_type;
+where club_type = old.club_type;
 end;
 |
 delimiter ;
