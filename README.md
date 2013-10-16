@@ -1,6 +1,5 @@
 #DEPLOYMENT NOTES
 - Accessible via: http://secure-plains-7416.herokuapp.com/ 
-- git repo: git@heroku.com:secure-plains-7416.git
 
 #TO-DOs 
 2. Setup Installation file (Alvar)
