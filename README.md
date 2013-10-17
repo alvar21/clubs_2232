@@ -56,7 +56,3 @@ Please visit Setup and Instructions.txt for instructions on how to:
 * i. 	A signal is triggered on creation of a new user to create a member entry with the same id as the primary key of the created user. The first_name, last_name, email correspond as well.
 * ii. 	A signal is triggered on address edition to update the coordinates of the club's location.
 * iii. 	A signal is triggered whenever there new entries or updates to existing entries to update search indexes.
-
-## BUGS
-* Login and registration form out of alignment
-* Owner has already joined created club but the option to 'quit' should be there instead of 'joining'
