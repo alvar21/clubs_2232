@@ -27,6 +27,7 @@ Visit:
 	$ brew install geos
 3) Install haystack
 	$ sudo easy_install django-haystack
+4) Refer to /requirements.txt for other dependencies which may be used in this project
 
 /*
  * In order to setup own database:
