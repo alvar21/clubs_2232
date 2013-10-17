@@ -7081,7 +7081,7 @@ d3.geo.albersUsa = function() {
 d3.geo.bonne = function() {
   var scale = 200,
       translate = [480, 250],
-      x0, // origin longitude in radians
+      x0, // origin longtitude in radians
       y0, // origin latitude in radians
       y1, // parallel latitude in radians
       c1; // cot(y1)
@@ -7499,8 +7499,8 @@ function d3_path_circle(radius) {
 /**
  * Given a GeoJSON object, returns the corresponding bounding box. The bounding
  * box is represented by a two-dimensional array: [[left, bottom], [right,
- * top]], where left is the minimum longitude, bottom is the minimum latitude,
- * right is maximum longitude, and top is the maximum latitude.
+ * top]], where left is the minimum longtitude, bottom is the minimum latitude,
+ * right is maximum longtitude, and top is the maximum latitude.
  */
 d3.geo.bounds = function(feature) {
   var left = Infinity,

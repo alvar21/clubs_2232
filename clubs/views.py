@@ -104,7 +104,7 @@ def club_reg(request):
 				place, (lat, lng) = g.geocode(club.address, exactly_one=False)[0]
 				club.address = place
 				club.location_latitude = lat
-				club.location_longitude = lng
+				club.location_longtitude = lng
 				club.save()
 			except ValueError:
 				return redirect('/clubs/register/')
@@ -285,7 +285,7 @@ def owner_club_edit(request, pk):
 				place, (lat, lng) = g.geocode(instance.address, exactly_one=False)[0]
 				instance.address = place
 				instance.location_latitude = lat
-				instance.location_longitude = lng
+				instance.location_longtitude = lng
 				club = form.save()
 			except ValueError:
 				return redirect('/ownerclubs/%s/edit' % pk)
@@ -341,7 +341,7 @@ def admin_club_edit(request, pk):
 				place, (lat, lng) = g.geocode(instance.address, exactly_one=False)[0]
 				instance.address = place
 				instance.location_latitude = lat
-				instance.location_longitude = lng
+				instance.location_longtitude = lng
 				club = form.save()
 			except ValueError:
 				return redirect('/admin/clubs/%s/edit' % pk)

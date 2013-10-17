@@ -109,7 +109,7 @@ CREATE TABLE `clubs_club` (
     `recruiting_members` bool NOT NULL,
     `creation_date` date NOT NULL,
     `location_latitude` double precision,
-    `location_longitude` double precision,
+    `location_longtitude` double precision,
     `address` varchar(200) NOT NULL,
     `contact_number` varchar(50) NOT NULL,
     `email` varchar(50) NOT NULL,

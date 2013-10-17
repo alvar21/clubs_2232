@@ -1,0 +1,50 @@
+/*
+ * Login Information
+ */
+An admin account is created on running scripts/data.sql for testing of admin privileges. 
+It is also registered as a member, and is able to join/register clubs etc.
+username: admin123 
+password: 123
+
+/******************************
+ * Running clubs_2232 Remotely
+ ******************************/
+Visit: 
+
+
+/******************************
+ * Running clubs_2232 Locally
+ ******************************/
+
+/*
+ * Installing Dependencies:
+ */
+1) Install geopy	
+	$ sudo easy_install geopy
+2) Install brew
+	$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+3) Install GEOS
+	$ brew install geos
+3) Install haystack
+	$ sudo easy_install django-haystack
+4) Refer to /requirements.txt for other dependencies which may be used in this project
+
+/*
+ * In order to setup own database:
+ */
+1) Create a new connection
+2) Run install.sql
+3) Run data.sql
+4) Change host in settings.py file
+
+/*
+ * In order to run search in clubs_2232:
+ */
+1) Change directory to the Solr backend for haystack
+	$ cd apache-solr-4.0.0-BETA/example/ 
+2) Start the solr backend
+	$ java -jar start.jar
+3) In another terminal window: 
+	$ cd clubs_2232
+	$ python manage.py rebuild_index
+	$ python manage.py runserver
