@@ -1,28 +1,42 @@
 ##FEATURES
-* i. Users are able to create/join/quit a club.
-* ii. Once a new club is created, the current user would be the owner.
-* iii. Lists members of a club.
-* iv. View a member's membership information (last paid, date joined)
-* v. Owners are able to edit their members' membership information (last paid)
-* vi. Admins are able to edit/delete a club.
-* vii. Various statistics provided.
-* viii. Co-ordinates can be retrieved from address during club registration automatically.
-* ix. Lists the clubs a member has joined (Clubs -> My Clubs).
-* x. Admins and owners are able to edit members' info.
-* xi. An unauthorised page pops out every time tries to do something outside their given powers.
-* xii. If an owner quits a club, he may not be a member of the club, but he will still own the club.
-* xiii. Members are able to join a club if the club is recruiting members (the 'join' button should appear)
-* xiv. Works on Firefox, Safari (Mac and iOS) 
-* xv. Search by club names/types/locations(suburb,town,city,zipcode,within radius)
-* xvi. Search by members 
+General
+* i. List of all clubs
+* ii. List of all members
+* iii. List members of a club
+* iv. Various statistics 
+* v. Search for clubs (location{suburb,town,zipcode,within location}, name, type)
+* vi. Search for members
+* vii. Using geopy, coordinates are automatically added when a new club is created or the club's address is changed
+* viii. An unauthorised page pops out every time someone tries to do something outside their given powers.
+* 
+USERS
+* i. Able to create/join/quit a club (only able to join if club is recruiting)
+* ii. Able to view clubs joined (Clubs --> My Clubs)
+* iii. Able to view membership information
+* iv. Able to edit information (changing password included)
+* 
+OWNERS
+* i. Able to delete/edit own clubs
+* ii. Able to edit club members' information
+* iii. Able to edit club members' membership information
+* iv. Able to kick members out of clubs
+*
+Admins
+* i. Able to delete/edit all clubs
+* ii. Able to edit members' information
+* iii. Able to edit members' membership information
+* iv. Able to kick members out of clubs
+*
 
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
+3. When an owner quits a club, he would still be a owner club.
 
 ###Notes:
 * i. On creation of a club, the current user will be the owner of the club.
 * ii. Some members may not choose to reveal their addresses, so we give them the option to add their address to our databse by editing their information on the member edit page, or to not do so.
+* iii. The admin/owner tab only appears when the user is an admin or an owner. (Use admin123//123 to test out these features)
 
 ##TRIGGERS:
 * i. On Members table update, the Users table will be updated correspondingly.
