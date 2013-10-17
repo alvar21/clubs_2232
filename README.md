@@ -1,9 +1,12 @@
 #DEPLOYMENT NOTES
 - Accessible via: http://secure-plains-7416.herokuapp.com/ 
+- git repo: git@heroku.com:secure-plains-7416.git
 
 #TO-DOs 
+1. UML - Check BCNF/4NF (Alvar)
 2. Setup Installation file (Alvar)
 3. Deployment to Server (Alvar)
+4. Update Scripts to reflect new Relations (William)
 5. Add Users Table to Data Dictionary.txt (Ian)
 6. Database Testing List - WIP (Ian and William)
 7. Unliking clubs (Alvar)
@@ -74,6 +77,7 @@
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
+3. Searches with no results don't render a "no results" message to keep user informed.
 
 ###Notes:
 * i. On creation of a club, the current user will be the owner of the club.

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{% if club_members %}
+{% if clubs %}
 <h1>Members Per Club</h1> 
     <table class="table table-striped">
         <thead>
@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for club in club_members %}
+        {% for club in clubs %}
             <tr>
                 <td>{{ club.clubname }}</td>
 				<td>{{ club.number }}</td>

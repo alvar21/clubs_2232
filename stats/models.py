@@ -5,7 +5,7 @@ class Users(models.Model):
 	number = models.IntegerField(primary_key=True)
 
 class Clubs(models.Model):
-	club_type = models.CharField(max_length=50, primary_key=True)
+	clubtype = models.CharField(max_length=50, primary_key=True)
 	number = models.IntegerField()
 
 class MembersPerClub(models.Model):
