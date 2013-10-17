@@ -19,13 +19,13 @@ class MPCStatsView(generic.ListView):
     context_object_name = 'clubs'
     
     def get_queryset(self):
-        return MembersPerClub.objects.all()
+        return MembersPerClub.objects.order_by('club_name')
 
 class ClubsStatsView(generic.ListView):
     template_name = 'stats/clubs_stats.html'
     context_object_name = 'clubs'
     
     def get_queryset(self):
-        return Clubs.objects.all()
+        return Clubs.objects.order_by('club_type')
 
 
