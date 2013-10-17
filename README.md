@@ -61,10 +61,6 @@ Please visit Setup and Instructions.txt for instructions on how to:
 2. Owners are not able to transfer their ownership.
 3. When an owner quits a club, he would still be a owner club.
 
-###Notes:
-* i. On creation of a club, the current user will be the owner of the club.
-* ii. Some members may not choose to reveal their addresses, so we give them the option to add their address to our databse by editing their information on the member edit page, or to not do so.
-
 ##TRIGGERS:
 * i. 	On Members table update, the Users table will be updated correspondingly.
 * ii. 	On membership entry addition, an update to the club's entry in stats_membersperclub table and an update to the number of members who have joined the club will be triggered.
