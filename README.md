@@ -8,21 +8,25 @@ General
 * vi. Search for members
 * vii. Using geopy, coordinates are automatically added when a new club is created or the club's address is changed
 * viii. An unauthorised page pops out every time someone tries to do something outside their given powers.
+* 
 USERS
 * i. Able to create/join/quit a club (only able to join if club is recruiting)
 * ii. Able to view clubs joined (Clubs --> My Clubs)
 * iii. Able to view membership information
 * iv. Able to edit information (changing password included)
+* 
 OWNERS
 * i. Able to delete/edit own clubs
 * ii. Able to edit club members' information
 * iii. Able to edit club members' membership information
 * iv. Able to kick members out of clubs
-Admins
+*
+ADMINS
 * i. Able to delete/edit all clubs
 * ii. Able to edit members' information
 * iii. Able to edit members' membership information
 * iv. Able to kick members out of clubs
+*
 
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
