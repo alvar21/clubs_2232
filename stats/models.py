@@ -10,7 +10,7 @@ class Clubs(models.Model):
 
 class MembersPerClub(models.Model):
 	club = models.ForeignKey(Club, primary_key=True)
-	clubname = models.CharField(max_length=50)
+	club_name = models.CharField(max_length=50)
 	number = models.IntegerField()
 
 
