@@ -23,7 +23,7 @@ class ClubsSearchForm(SearchForm):
 			return sqs
 
 class LocationSearchForm(SearchForm):
-	q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Address/Town/Suburb'}), max_length=255, required=True)
+	q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Town/City/Suburb/Postcode'}), max_length=255, required=True)
 	radius = forms.IntegerField(label="", widget=forms.TextInput(attrs={'placeholder': 'Radius (miles)'}), required=True)
 		
 	def search(self):
