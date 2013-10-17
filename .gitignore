@@ -1,0 +1,5 @@
+*.log
+*.pot
+*.pyclocal_settings
+.pyvenvstaticfiles
+.README.md.swp
