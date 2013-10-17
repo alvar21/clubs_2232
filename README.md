@@ -22,10 +22,10 @@
 	- Update club details as a end user (should not be possible)
 
 ### Club deletion
-	- Delete a club (as an owner, correct club) - FAIL
-	- Delete a club (as an owner, wrong club, should not be possible)
-	- Delete a club (as an administrator)
-	- Delete club details as a end user (should not be possible)
+	- Delete a club (as an owner, correct club) - PASS
+	- Delete a club (as an owner, wrong club, should not be possible) - PASS
+	- Delete a club (as an administrator) - PASS
+	- Delete club details as a end user (should not be possible) - PASS
 
 ### Search for club:
 	- By name - PASS
