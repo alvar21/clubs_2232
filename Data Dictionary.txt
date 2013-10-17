@@ -33,3 +33,13 @@ Membership contains 4 attributes
 	- club is a foreign key of Club
 	- date_joined is a date field (automatically generated when a member joins a club)
 	- date_last_paid is a date field (automatically generated to when a member joins a club, can also be null)
+
+Users contains 8 attributes
+	- id is an primary key integer
+	- password is a string field (with maximum length of 128)
+	- last_login is a date field
+	- is_superuser is a boolean field
+	- username is a string field (with maximum length of 30)
+	- first_name is a string field (with maximum length of 50)
+	- last_name is a string field (with maximum length of 50)
+	- email is a string field (with maximum length of 75)
