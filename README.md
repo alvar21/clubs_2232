@@ -1,81 +1,24 @@
-#TO-DOs 
-1. UML - Check BCNF/4NF (Alvar)
-2. Setup Installation file (Alvar)
-3. Deployment to Server (Alvar)
-4. Update Scripts to reflect new Relations (William)
-5. Add Users Table to Data Dictionary.txt (Ian)
-6. Database Testing List - WIP (Ian and William)
-8. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view (Alvar)
-9. Showing a message for a search which returns no results (Alvar)
-10. Unliking clubs (Alvar)
-11. Change Bootstrap used (Alvar)
-
-
-#Test Check List
-### Registration
-	- Register as a user of the system (end user registration should only be possible)
-	- Register a club with all details completed.
-
-### Updating club
-	- Update club details (as a owner, correct club)
-	- Update club details (as a owner, wrong club, should not be possible)
-	- Update club details (as an administrator)
-	- Update club details as a end user (should not be possible)
-
-### Club deletion
-	- Delete a club (as an owner, correct club)
-	- Delete a club (as an owner, wrong club, should not be possible)
-	- Delete a club (as an administrator)
-	- Delete club details as a end user (should not be possible)
-
-### Search for club:
-	- By name
-	- By club type
-	- By suburb
-	- By 'within radius of location'
-
-### Search for members:
-	- By name
-	
-### List details of club
-	- Name
-	- Address
-	- Type
-	- Location
-	- Number of members
-	- Creation Date
-	- Recruiting members (TRUE/FALSE)
-	- Contact (phone number)
-	- Facebook page
-	- Twitter account (handle)
-	- Description
-	- List of members of club
-
-### Membership
-	- Join a club which is recruiting members
-	- Join a club which is not recruiting members (should not be possible)
-	- Quit a club not owned by the user
-	- Quit a club owned by the user
----
-
 ##FEATURES
 * i. Users are able to create/join/quit a club.
 * ii. Once a new club is created, the current user would be the owner.
-* iii. Able to list members of a club.
-* iv. Able to view a member's membership information (last paid, date joined)
+* iii. Lists members of a club.
+* iv. View a member's membership information (last paid, date joined)
 * v. Owners are able to edit their members' membership information (last paid)
 * vi. Admins are able to edit/delete a club.
 * vii. Various statistics provided.
-* viii. Coordinates can be retrieved from address during club registration automatically.
-* ix. Able to list the clubs a member joined (Clubs > My Clubs).
+* viii. Co-ordinates can be retrieved from address during club registration automatically.
+* ix. Lists the clubs a member has joined (Clubs -> My Clubs).
 * x. Admins and owners are able to edit members' info.
-* xi. Unauthorised page pops out every time tries to do something outside their given powers.
+* xi. An unauthorised page pops out every time tries to do something outside their given powers.
 * xii. If an owner quits a club, he may not be a member of the club, but he will still own the club.
+* xiii. Members are able to join a club if the club is recruiting members (the 'join' button should appear)
+* xiv. Works on Firefox, Safari (Mac and iOS) 
+* xv. Search by club names/types/locations(suburb,town,city,zipcode,within radius)
+* xvi. Search by members 
 
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
-3. Searches with no results don't render a "no results" message to keep user informed.
 
 ###Notes:
 * i. On creation of a club, the current user will be the owner of the club.
@@ -92,5 +35,5 @@
 ##SIGNALS (django database triggers):
 * i. A signal is triggered on creation of a new user to create a member entry with the same id as the primary key of the created user. The first_name, last_name, email correspond as well.
 * ii. A signal is triggered on address edition to update the coordinates of the club's location.
-
+* iii. There is a signal to update indexes whenever there new entries or updates to existing entries.
 
