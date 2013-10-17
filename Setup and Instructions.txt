@@ -44,6 +44,6 @@ Visit:
 2) Start the solr backend
 	$ java -jar start.jar
 3) In another terminal window: 
-	$ cd clubs_2232/project/
+	$ cd clubs_2232
 	$ python manage.py rebuild_index
 	$ python manage.py runserver
