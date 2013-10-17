@@ -3,25 +3,6 @@ Please visit Setup and Instructions.txt for instructions on how to:
 1. Run clubs_2232 remotely
 2. Run clubs_2232 locally
 
-##FEATURES
-
-* i.	Users are able to create/join/quit a club.
-* ii.	Once a new club is created, the current user would be the owner.
-* iii. 	Lists members of a club.
-* iv. 	View a member's membership information (last paid, date joined)
-* v. 	Owners are able to edit their members' membership information (last paid)
-* vi. 	Admins are able to edit/delete a club.
-* vii. 	Various statistics provided.
-* viii. Co-ordinates can be retrieved from address during club registration automatically.
-* ix. 	Lists the clubs a member has joined (Clubs -> My Clubs).
-* x. 	Admins and owners are able to edit members' info.
-* xi. 	An unauthorised page pops out every time tries to do something outside their given powers.
-* xii. 	If an owner quits a club, he may not be a member of the club, but he will still own the club.
-* xiii. Members are able to join a club if the club is recruiting members (the 'join' button should appear)
-* xiv. 	Works on Firefox, Safari (Mac and iOS) 
-* xv. 	Search by club names/types/locations(suburb,town,city,zipcode,within radius)
-* xvi. 	Search by members 
-
 ####General
 * i. 	List of all clubs
 * ii. 	List of all members
