@@ -1,0 +1,4 @@
+*.log
+*.pot
+*.pyclocal_settings
+.pyvenvstaticfiles
