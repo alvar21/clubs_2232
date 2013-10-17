@@ -17,10 +17,16 @@ brew install geos
 Install haystack
 $ sudo easy_install django-haystack
 
+In order to setup own database:
+1) Create a new connection
+2) Run install.sql
+3) Run data.sql
+4) Change host in settings.py file
+
 In order to run search in clubs_2232:
 1) $ cd apache-solr-4.0.0-BETA/example/ 
 2) $ java -jar start.jar
 3) In another terminal window: 
 	$ cd clubs_2232/project/
 	$ python manage.py rebuild_index
-4) $ python manage.py runserver
+	$ python manage.py runserver
