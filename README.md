@@ -1,96 +1,79 @@
-#TO-DOs 
-1. UML - Check BCNF/4NF (Alvar)
-2. Setup Installation file (Alvar)
-3. Deployment to Server (Alvar)
-4. Update Scripts to reflect new Relations (William)
-5. Add Users Table to Data Dictionary.txt (Ian)
-6. Database Testing List - WIP (Ian and William)
-8. Membership info (i.e. last paid etc) & List Members view buttons from My Clubs view (Alvar)
-9. Showing a message for a search which returns no results (Alvar)
-10. Unliking clubs (Alvar)
-11. Change Bootstrap used (Alvar)
+#Welcome to clubs_2232
+Please visit Setup and Instructions.txt for instructions on how to:
 
+1. Run clubs_2232 remotely
+2. Run clubs_2232 locally
 
-#Test Check List
-### Registration
-	- Register as a user of the system (end user registration should only be possible)
-	- Register a club with all details completed.
+####General
+* i. 	List of all clubs
+* ii. 	List of all members
+* iii. 	List members of a club
+* iv. 	Various statistics 
+* v. 	Search for clubs (location{suburb,town,zipcode,within location}, name, type)
+* vi. 	Search for members
+* vii. 	Using geopy, coordinates are automatically added when a new club is created or the club's address is changed
+* viii. An unauthorised page pops out every time someone tries to do something outside their given powers.
 
-### Updating club
-	- Update club details (as a owner, correct club)
-	- Update club details (as a owner, wrong club, should not be possible)
-	- Update club details (as an administrator)
-	- Update club details as a end user (should not be possible)
+####USERS
+* i. 	Able to create/join/quit a club (only able to join if club is recruiting)
+* ii. 	Able to view clubs joined (Clubs --> My Clubs)
+* iii. 	Able to view membership information
+* iv. 	Able to edit information (changing password included)
 
-### Club deletion
-	- Delete a club (as an owner, correct club)
-	- Delete a club (as an owner, wrong club, should not be possible)
-	- Delete a club (as an administrator)
-	- Delete club details as a end user (should not be possible)
+####OWNERS
+* i. 	Able to delete/edit own clubs
+* ii. 	Able to edit club members' information
+* iii. 	Able to edit club members' membership information
+* iv. 	Able to kick members out of clubs
 
-### Search for club:
-	- By name
-	- By club type
-	- By suburb
-	- By 'within radius of location'
+####ADMINS
+* i. 	Able to delete/edit all clubs
+* ii. 	Able to edit members' information
+* iii. 	Able to edit members' membership information
+* iv. 	Able to kick members out of clubs
 
-### Search for members:
-	- By name
-	
-### List details of club
-	- Name
-	- Address
-	- Type
-	- Location
-	- Number of members
-	- Creation Date
-	- Recruiting members (TRUE/FALSE)
-	- Contact (phone number)
-	- Facebook page
-	- Twitter account (handle)
-	- Description
-	- List of members of club
-
-### Membership
-	- Join a club which is recruiting members
-	- Join a club which is not recruiting members (should not be possible)
-	- Quit a club not owned by the user
-	- Quit a club owned by the user
----
+#####Notes:
+* i. 	On creation of a club, the current user will be the owner of the club.
+* ii. 	Some members may not choose to reveal their addresses, 
+	*	we give them the option to add their address to our databse 
+	*	by editing their information on the member edit page, or to not do so.
 
 ##FEATURES
 * i. Users are able to create/join/quit a club.
 * ii. Once a new club is created, the current user would be the owner.
-* iii. Able to list members of a club.
-* iv. Able to view a member's membership information (last paid, date joined)
+* iii. Lists members of a club.
+* iv. View a member's membership information (last paid, date joined)
 * v. Owners are able to edit their members' membership information (last paid)
 * vi. Admins are able to edit/delete a club.
 * vii. Various statistics provided.
-* viii. Coordinates can be retrieved from address during club registration automatically.
-* ix. Able to list the clubs a member joined (Clubs > My Clubs).
+* viii. Co-ordinates can be retrieved from address during club registration automatically.
+* ix. Lists the clubs a member has joined (Clubs -> My Clubs).
 * x. Admins and owners are able to edit members' info.
-* xi. Unauthorised page pops out every time tries to do something outside their given powers.
+* xi. An unauthorised page pops out every time tries to do something outside their given powers.
 * xii. If an owner quits a club, he may not be a member of the club, but he will still own the club.
+* xiii. Members are able to join a club if the club is recruiting members (the 'join' button should appear)
+* xiv. Works on Firefox, Safari (Mac and iOS) 
+* xv. Search by club names/types/locations(suburb,town,city,zipcode,within radius)
+* xvi. Search by members 
 
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
-3. Searches with no results don't render a "no results" message to keep user informed.
+3. When an owner quits a club, he would still be a owner club.
 
 ###Notes:
 * i. On creation of a club, the current user will be the owner of the club.
 * ii. Some members may not choose to reveal their addresses, so we give them the option to add their address to our databse by editing their information on the member edit page, or to not do so.
 
 ##TRIGGERS:
-* i. On Members table update, the Users table will be updated correspondingly.
-* ii. On membership entry addition, an update to the club's entry in stats_membersperclub table and an update to the number of members who have joined the club will be triggered.
-* iii. On membership entry deletion, an update to the stats of current number of users in the database and an update to the number of members of the club will be triggered.
-* iv. On club creation, an update to the number of clubs per club type will be triggered.
-* v. On club deletion, an update to the number of clubs per club type and a deletion of its entry from stats_membersperclub table will be triggered.
-* vi. On user registration, an update to the total number of users will be triggered.
+* i. 	On Members table update, the Users table will be updated correspondingly.
+* ii. 	On membership entry addition, an update to the club's entry in stats_membersperclub table and an update to the number of members who have joined the club will be triggered.
+* iii. 	On membership entry deletion, an update to the stats of current number of users in the database and an update to the number of members of the club will be triggered.
+* iv. 	On club creation, an update to the number of clubs per club type will be triggered.
+* v. 	On club deletion, an update to the number of clubs per club type and a deletion of its entry from stats_membersperclub table will be triggered.
+* vi. 	On user registration, an update to the total number of users will be triggered.
 
 ##SIGNALS (django database triggers):
-* i. A signal is triggered on creation of a new user to create a member entry with the same id as the primary key of the created user. The first_name, last_name, email correspond as well.
-* ii. A signal is triggered on address edition to update the coordinates of the club's location.
-
-
+* i. 	A signal is triggered on creation of a new user to create a member entry with the same id as the primary key of the created user. The first_name, last_name, email correspond as well.
+* ii. 	A signal is triggered on address edition to update the coordinates of the club's location.
+* iii. 	A signal is triggered whenever there new entries or updates to existing entries to update search indexes.
