@@ -12,53 +12,47 @@
 
 #Test Check List
 ### Registration
-	- Register as a user of the system (end user registration should only be possible)
-	- Register a club with all details completed.
+	- Register as a user of the system (end user registration should only be possible) - PASS
+	- Register a club with all details completed - PASS
 
 ### Updating club
-	- Update club details (as a owner, correct club)
-	- Update club details (as a owner, wrong club, should not be possible)
-	- Update club details (as an administrator)
+	- Update club details (as a owner, correct club) - PASS
+	- Update club details (as a owner, wrong club, should not be possible) - PASS
+	- Update club details (as an administrator) - PASS
 	- Update club details as a end user (should not be possible)
 
 ### Club deletion
-	- Delete a club (as an owner, correct club)
+	- Delete a club (as an owner, correct club) - FAIL
 	- Delete a club (as an owner, wrong club, should not be possible)
 	- Delete a club (as an administrator)
 	- Delete club details as a end user (should not be possible)
 
 ### Search for club:
-	- By name
-	- By club type
-	- By suburb
-	- By 'within radius of location'
+	- By name - PASS
+	- By club type - PASS
+	- By suburb - PASS
+	- By town - PASS
+	- By city - PASS
+	- By postcode - PASS
+	- By 'within radius of location' - PASS
 
 ### Search for members:
-	- By name
-	
-### List details of club
-	- Name
-	- Address
-	- Type
-	- Location
-	- Number of members
-	- Creation Date
-	- Recruiting members (TRUE/FALSE)
-	- Contact (phone number)
-	- Facebook page
-	- Twitter account (handle)
-	- Description
-	- List of members of club
+	- By name - PASS
 
 ### Membership
-	- Join a club which is recruiting members
-	- Join a club which is not recruiting members (should not be possible)
-	- Quit a club not owned by the user
-	- Quit a club owned by the user
+	- Join a club which is recruiting members - PASS
+	- Join a club which is not recruiting members (should not be possible) - PASS
+	- Quit a club not owned by the user - PASS
+	- Quit a club owned by the user - PASS (still owner)
+	
+### Update member profile
+	- Changing password - PASS
+	- Change/Add details - PASS
+	
 
 ### Views
-	- View a club with all details present
-	- View a member with all details present 
+	- View a club with all details present - PASS
+	- View a member with all details present - PASS
 ---
 
 ##FEATURES
@@ -75,7 +69,7 @@
 * xi. An unauthorised page pops out every time tries to do something outside their given powers.
 * xii. If an owner quits a club, he may not be a member of the club, but he will still own the club.
 * xiii. Members are able to join a club if the club is recruiting members (the 'join' button should appear)
-
+* xiv. Works on Firefox, Safari (Mac and iOS) 
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
 2. Owners are not able to transfer their ownership.
