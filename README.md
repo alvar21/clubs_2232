@@ -53,8 +53,8 @@ Please visit Setup and Instructions.txt for instructions on how to:
 #####Notes:
 * i. 	On creation of a club, the current user will be the owner of the club.
 * ii. 	Some members may not choose to reveal their addresses, 
-			*	we give them the option to add their address to our databse 
-			*	by editing their information on the member edit page, or to not do so.
+	*	we give them the option to add their address to our databse 
+	*	by editing their information on the member edit page, or to not do so.
 
 ##Weaknesses
 1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
