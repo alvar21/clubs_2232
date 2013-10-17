@@ -11,7 +11,8 @@
 				<th>Members</th>
 				<th>Address</th>
                 <th>Likes</th>
-                <th>Last Paid</th>
+                <th>Details</th>
+                <th>Recruiting Members</th>
             </tr>
         </thead>
         <tbody>
@@ -23,13 +24,10 @@
 				<td>{{ club.number_of_members }} <a href="/clubs/{{ club.id }}/members/"><button>List</button></a></td>
 				<td>{{ club.address }}</td>
 				<td>{{ club.likes }}</td>
-        {% for mem in membership %}
-		{% if mem.club_id = club.id %}
-				<td>{{ mem.last_paid }}</td>
-		{% endif %}
-		{% endfor %}
 				<td><a href="/clubs/{{club.id}}"><button>View</button></a></td>
+				{% if club.recruiting_members == 1 %}
 				<td><a href="/clubs/join/{{ club.id }}"><button>Join</button></td>
+				{% endif %}
             </tr>
 		{% endfor %}
     </tbody>
@@ -46,6 +44,7 @@
 				<th>Address</th>
                 <th>Likes</th>
                 <th>Last Paid</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
@@ -78,6 +77,7 @@
 				<th>Members</th>
 				<th>Address</th>
                 <th>Likes</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>

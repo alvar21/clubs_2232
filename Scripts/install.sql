@@ -92,7 +92,7 @@ CREATE TABLE `clubs_members` (
     `member_id` integer NOT NULL PRIMARY KEY,
     `first_name` varchar(50) NOT NULL,
     `last_name` varchar(50) NOT NULL,
-    `address` varchar(200) NOT NULL,
+    `address` varchar(200),
     `email` varchar(50) NOT NULL,
     `facebook` varchar(200),
     `twitter` varchar(50),
@@ -109,8 +109,8 @@ CREATE TABLE `clubs_club` (
     `recruiting_members` bool NOT NULL,
     `creation_date` date NOT NULL,
     `location_latitude` double precision,
-    `location_longitude` double precision,
-    `address` varchar(200) NOT NULL,
+    `location_longtitude` double precision,
+    `address` varchar(200),
     `contact_number` varchar(50) NOT NULL,
     `email` varchar(50) NOT NULL,
     `facebook` varchar(200),
@@ -145,13 +145,13 @@ CREATE TABLE `stats_clubs` (
 ;
 CREATE TABLE `stats_membersperclub` (
     `club_id` integer NOT NULL PRIMARY KEY,
-    `clubname` varchar(50) NOT NULL,
+    `club_name` varchar(50) NOT NULL,
     `number` integer NOT NULL
 )
 ;
--- The following references should be added but depend on non-existent tables:
--- ALTER TABLE `stats_membersperclub` ADD CONSTRAINT `club_id_refs_id_46e89926` FOREIGN KEY (`club_id`) REFERENCES `clubs_club` (`id`);
+ALTER TABLE `stats_membersperclub` ADD CONSTRAINT `club_id_refs_id_46e89926` FOREIGN KEY (`club_id`) REFERENCES `clubs_club` (`id`);
 COMMIT;
+
 delimiter |
 create trigger EditUser
 after update on clubs_members
@@ -206,12 +206,12 @@ after insert on clubs_club
 for each row
 begin
 if (select count(*) from stats_clubs where club_type = new.club_type) = 0 then
-	insert into stats_clubs values (new.club_type, 
-		(select count(*) from clubs_club where club_type = new.club_type));
+insert into stats_clubs values (new.club_type, 
+(select count(*) from clubs_club where club_type = new.club_type));
 elseif (select count(*) from stats_clubs where club_type = new.club_type) > 0 then
-	update stats_clubs
-	set number = (select count(*) from clubs_club where club_type = new.club_type)
-	where club_type = new.club_type;
+update stats_clubs
+set number = (select count(*) from clubs_club where club_type = new.club_type)
+where club_type = new.club_type;
 end if;
 end;
 |
@@ -223,10 +223,15 @@ after delete on clubs_club
 for each row
 begin
 delete from stats_membersperclub
-where clubclub_idid = old.id;
+where club_id = old.id;
+if (select count(*) from clubs_club where club_type = old.club_type) = 0 then
+delete from stats_clubs
+where club_type = old.club_type;
+elseif (select count(*) from clubs_club where club_type = old.club_type) > 0 then
 update stats_clubs
 set number = (select count(*) from clubs_club where club_type = old.club_type)
 where club_type = old.club_type;
+end if;
 end;
 |
 delimiter ;
@@ -241,3 +246,11 @@ set number = (select count(*) from auth_user);
 end;
 |
 delimiter ;
+
+
+
+
+
+
+
+

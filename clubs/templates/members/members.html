@@ -49,9 +49,6 @@
                 <td>{% if member.facebook != null %} {{ member.facebook }} {% else %} {% endif %}</td>
 				<td>{% if member.twitter != null %} {{ member.twitter }} {% else %} {% endif %}</td>
 				<td>{% if member.interests != null %} {{ member.interests }} {% else %} {% endif %}</td>
-				{% for c in club %}
-				<td><a href="/membership/{{ member.member_id }}/{{ c.id }}/"><button>Membership</button></a></td>
-				{% endfor %}
 				<td><a href="/member/{{ member.member_id }}/"><button>View</button></a></td>
             </tr>
 		{% endfor %}

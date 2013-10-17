@@ -9,7 +9,7 @@ class ClubIndex(indexes.SearchIndex, indexes.Indexable):
 	type = indexes.CharField(model_attr='club_type')
 	location = indexes.LocationField(model_attr='get_location')
 	location_latitude = indexes.FloatField(model_attr='location_latitude')
-	location_longitude = indexes.FloatField(model_attr='location_longitude')
+	location_longtitude = indexes.FloatField(model_attr='location_longtitude')
 
 	def get_model(self):
 		return Club

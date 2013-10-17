@@ -23,7 +23,7 @@ class ClubsSearchForm(SearchForm):
 			return sqs
 
 class LocationSearchForm(SearchForm):
-	q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Address/Town/Suburb'}), max_length=255, required=True)
+	q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Town/City/Suburb/Postcode'}), max_length=255, required=True)
 	radius = forms.IntegerField(label="", widget=forms.TextInput(attrs={'placeholder': 'Radius (miles)'}), required=True)
 		
 	def search(self):
@@ -35,10 +35,7 @@ class LocationSearchForm(SearchForm):
 
 		sqs = self.searchqueryset.all()
 
-		if not sqs.filter(address__contains=self.cleaned_data.get('q')):
-			return self.no_query_found()
-
-		address = self.cleaned_data['q'] + " WA"
+		address = self.cleaned_data['q'] + " Australia"
 		g = geocoders.GoogleV3()
 		place, (lat, lng) = g.geocode(address, exactly_one=False)[0]
 		max_dist = D(mi=self.cleaned_data['radius'])
@@ -108,6 +105,7 @@ class ClubForm(forms.ModelForm):
     class Meta:
 		model = Club
 		fields = ('name', 'club_type', 'recruiting_members', 'address', 'contact_number', 'email', 'facebook', 'twitter', 'description')
+
 
 
 

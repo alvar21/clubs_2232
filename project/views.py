@@ -9,6 +9,16 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.template.response import TemplateResponse
+from clubs.search_indexes import *
+from haystack import signals
+
+def reindex_ClubIndex(sender, **kwargs):
+	MyModelIndex().update_object(kwargs['instance'].mymodel)
+	models.signals.post_save.connect(reindex_mymodel, sender=Club)
+
+def reindex_MembersIndex(sender, **kwargs):
+	MyModelIndex().update_object(kwargs['instance'].mymodel)
+	models.signals.post_save.connect(reindex_mymodel, sender=Members)
 
 def login(request):
 	c = {}

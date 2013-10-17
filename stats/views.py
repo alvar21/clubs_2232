@@ -16,7 +16,7 @@ class UsersStatsView(generic.ListView):
 
 class MPCStatsView(generic.ListView):
     template_name = 'stats/mpc_stats.html'
-    context_object_name = 'club_members'
+    context_object_name = 'clubs'
     
     def get_queryset(self):
         return MembersPerClub.objects.all()

@@ -12,8 +12,6 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from haystack.query import SearchQuerySet
 
-
-
 def home(request):
 	return render_to_response('home.html', {}, context_instance=RequestContext(request))
 
@@ -101,10 +99,11 @@ def club_reg(request):
 				club = form.save(commit=False)
 				club.owner = Members.objects.get(pk=request.user.id)
 				g = geocoders.GoogleV3()
-				place, (lat, lng) = g.geocode(club.address, exactly_one=False)[0]
+				address = club.address + " Australia"
+				place, (lat, lng) = g.geocode(address, exactly_one=False)[0]
 				club.address = place
 				club.location_latitude = lat
-				club.location_longitude = lng
+				club.location_longtitude = lng
 				club.save()
 			except ValueError:
 				return redirect('/clubs/register/')
@@ -282,10 +281,11 @@ def owner_club_edit(request, pk):
 		if form.is_valid():
 			try:
 				g = geocoders.GoogleV3()
-				place, (lat, lng) = g.geocode(instance.address, exactly_one=False)[0]
+				address = instance.address + " Australia"
+				place, (lat, lng) = g.geocode(address, exactly_one=False)[0]
 				instance.address = place
 				instance.location_latitude = lat
-				instance.location_longitude = lng
+				instance.location_longtitude = lng
 				club = form.save()
 			except ValueError:
 				return redirect('/ownerclubs/%s/edit' % pk)
@@ -338,10 +338,11 @@ def admin_club_edit(request, pk):
 		if form.is_valid():
 			try:
 				g = geocoders.GoogleV3()
-				place, (lat, lng) = g.geocode(instance.address, exactly_one=False)[0]
+				address = instance.address + " Australia"
+				place, (lat, lng) = g.geocode(address, exactly_one=False)[0]
 				instance.address = place
 				instance.location_latitude = lat
-				instance.location_longitude = lng
+				instance.location_longtitude = lng
 				club = form.save()
 			except ValueError:
 				return redirect('/admin/clubs/%s/edit' % pk)
@@ -392,5 +393,6 @@ def admin_member_kick(request, pk, pk2):
 		return HttpResponseRedirect('/admin/clubs/%s/members/' % pk)
 	else:
 		return redirect('/unauthorised')
+
 
 

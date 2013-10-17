@@ -1,11 +1,5 @@
 # Django settings for project project.
 
-# Static asset configuration
-import os
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -15,22 +9,18 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if os.getcwd() == "/app":
-    DATABASES = { 'default': dj_database_url.config(default='postgres://localhost') }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'clubs',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': '',
+        'USER': 'root',
         'PASSWORD': '',
         'HOST': 'ec2-54-252-182-144.ap-southeast-2.compute.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
-        # 'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        # 'PORT': '3306',                      # Set to empty string for default.
     }
 }
-    
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -124,7 +114,6 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'gunicorn',
 	'haystack',
 	'clubs',
 	'stats',
@@ -184,6 +173,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "clubs.context_processors.isowner",
 )
 
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
@@ -192,21 +183,3 @@ HAYSTACK_CONNECTIONS = {
         # 'URL': 'http://127.0.0.1:8983/solr/mysite',
     },
 }
-
-# DATABASES['default'] =  dj_database_url.config()
-
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
-
-# Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)

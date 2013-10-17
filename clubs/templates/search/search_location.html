@@ -26,6 +26,7 @@
 					<th>Members</th>
 					<th>Likes</th>
 					<th>Address</th>
+					<th>Recruiting Members</th>
 				</tr>
 		</thead>
 		<tbody>
@@ -34,9 +35,12 @@
                     <td><a href="/clubs/{{ result.object.id }}">{{ result.object.name }}</a></td>
 					<td>{{ result.object.owner }}</td>
 					<td>{{ result.object.club_type }}</td>
-					<td><a href="/clubs/{{ result.object.id }}/members/">{{ result.object.number_of_members }}</a></td>
+					<td>{{ result.object.number_of_members }} <a href="/clubs/{{ result.object.id }}/members/"><button>List</button></a></td>
 					<td>{{ result.object.likes }}</td>
 					<td>{{ result.object.address }}
+					{% if result.object.recruiting_members == 1 %}
+					<td><a href="/clubs/join/{{ result.object.id }}"><button>Join</button></td>
+					{% endif %}
                 </tr>
 		</tbody>
             {% endfor %}
