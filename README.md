@@ -4,6 +4,7 @@ Please visit Setup and Instructions.txt for instructions on how to:
 2. Run clubs_2232 locally
 
 ##FEATURES
+
 * i.	Users are able to create/join/quit a club.
 * ii.	Once a new club is created, the current user would be the owner.
 * iii. 	Lists members of a club.
@@ -21,15 +22,44 @@ Please visit Setup and Instructions.txt for instructions on how to:
 * xv. 	Search by club names/types/locations(suburb,town,city,zipcode,within radius)
 * xvi. 	Search by members 
 
-##Weaknesses
-1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
-2. Owners are not able to transfer their ownership.
+####General
+* i. 	List of all clubs
+* ii. 	List of all members
+* iii. 	List members of a club
+* iv. 	Various statistics 
+* v. 	Search for clubs (location{suburb,town,zipcode,within location}, name, type)
+* vi. 	Search for members
+* vii. 	Using geopy, coordinates are automatically added when a new club is created or the club's address is changed
+* viii. An unauthorised page pops out every time someone tries to do something outside their given powers.
 
-###Notes:
+####USERS
+* i. 	Able to create/join/quit a club (only able to join if club is recruiting)
+* ii. 	Able to view clubs joined (Clubs --> My Clubs)
+* iii. 	Able to view membership information
+* iv. 	Able to edit information (changing password included)
+
+####OWNERS
+* i. 	Able to delete/edit own clubs
+* ii. 	Able to edit club members' information
+* iii. 	Able to edit club members' membership information
+* iv. 	Able to kick members out of clubs
+
+####ADMINS
+* i. 	Able to delete/edit all clubs
+* ii. 	Able to edit members' information
+* iii. 	Able to edit members' membership information
+* iv. 	Able to kick members out of clubs
+
+#####Notes:
 * i. 	On creation of a club, the current user will be the owner of the club.
 * ii. 	Some members may not choose to reveal their addresses, 
 			*	we give them the option to add their address to our databse 
 			*	by editing their information on the member edit page, or to not do so.
+
+##Weaknesses
+1. Default users (users with username firstname_lastname, inserted via data.sql) are not able to change their usernames.
+2. Owners are not able to transfer their ownership.
+3. When an owner quits a club, he would still be a owner club.
 
 ##TRIGGERS:
 * i. 	On Members table update, the Users table will be updated correspondingly.
@@ -42,5 +72,5 @@ Please visit Setup and Instructions.txt for instructions on how to:
 ##SIGNALS (django database triggers):
 * i. 	A signal is triggered on creation of a new user to create a member entry with the same id as the primary key of the created user. The first_name, last_name, email correspond as well.
 * ii. 	A signal is triggered on address edition to update the coordinates of the club's location.
-* iii. 	A signal is triggered whenever there new entries or updates to existing entries to update search indexes .
+* iii. 	A signal is triggered whenever there new entries or updates to existing entries to update search indexes.
 
