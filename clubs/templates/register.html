@@ -3,8 +3,9 @@
 
 	<h2>Register</h2>
 	<form action="/accounts/register/" method="post">{% csrf_token %}
-	{{form}}
-	
+			<ul style="list-style: none; margin-left: 0px; padding: 0px">
+				<li>{{ form.as_ul }}</li>
+			</ul>
 	<p>
 	<input type="submit" value="Register" />
 	</p>
