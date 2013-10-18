@@ -1,0 +1,122 @@
+Our design comprises of 4 main tables with a number of attributes each, namely Clubs, Members, Users and Membership.
+
+There are a number of additional tables attached to our django project which is not part of our intended design but are required for the django web app to run. 
+These are: 
+auth_group
+auth_group_permissions
+auth_permission
+auth_user_groups
+auth_user_user_permissions
+django_admin_log
+django_content_type
+django_session
+
+/*
+ * Clubs
+ */
+The Clubs Table has a whole list of attributes that correspond to each club. The Clubs relation has a key which is the Club_ID. 
+
+Club_ID (KEY) determines:
+- Owner
+- Name
+- Club_Type
+- Number_of_Members
+- Recruiting_Members
+- Creation_Date
+- Address
+- Contact_Number
+- Email
+- Likes
+- Description
+
+Club_ID (KEY) also determines:
+- Name
+- Number_of_Members
+
+Club_Type determines:
+- Number_of_Members
+
+Address determines:
+- Location_Latitude
+- Location_Longitude
+
+Email determines:
+- Facebook
+- Twitter
+
+These produce the relations:
+C1 (Club_ID(KEY), Owner, Club_Type, Recruiting_Members, Creation_Date, Address, Contact_Number, Email, Likes, Description)
+C2 (Club_ID(KEY), Name, Number_of_Members)
+C3 (Club_Type, Number_of_Members)
+C4 (Address, Location_Latitude, Location_Longitude)
+C5 (Email, Facebook, Twitter)
+
+The reason why we decided to join the relations into single Clubs relation and yet also keep C2 and C3 separate 
+is because of the unnecessary effort to join the relations and the frequency to which we list out all the attributes of the clubs in our Clubs views and the relative infrequency of viewing the statistics of the clubs in the Stats views. 
+
+Also, since every Club_ID generates only one tuple, each Address generates one set of Latitude and Longitude coordinates and each email generates one set of Facebook and Twitter links, the total number of tuples created in separate tables is the same as when they are joined. 
+
+The resulting relations were:
+Clubs (Club_ID(KEY), Owner, Club_Type, Recruiting_Members, Creation_Date, Address, Location_Latitude, Location_ Longitude, Contact_Number, Email, Facebook, Twitter, Likes, Description)
+Stats_Clubs (Club_Type, Number_of_Members)
+Stats_MemebersPerClub (Club_ID(KEY), Name, Number_of_Members)
+
+/*
+ * Members
+ */
+The Members Table consists of specific details of the individual members. The Members relation has a key which is actually the User_ID.
+
+User_ID (KEY) determines:
+- First_Name
+- Last_Name
+- Address
+- Email
+- Interests
+
+Email determines:
+- Facebook
+- Twitter
+
+These produce the relations:
+M1 (User_ID(KEY), First_Name, Last_Name, Address, Email, Interests)
+M2 (Email, Facebook, Twitter)
+
+In Boyce-Codd Normal Form, First_Name and Last_Name will not be in this class since we have already captured this data in the Users Table. 
+However, because of the frequency of the queries in the views of all members and their details, we felt a need to keep the First_Name and Last_Name in this relation. 
+
+Again, the reason why we chose to join the relations is because each User_ID generates one tuple of attributes and each Email generates one set of Facebook and Twitter links 
+(we made the assumption that every user uses the same email address for registration to be a user, on facebook and twitter). 
+Therefore the is no benefit to decomposing the relations since there is no decrease in the total number of tuples.
+
+The resulting relation was:
+Members (User_ID(KEY), First_Name, Last_Name, Address, Email, Facebook, Twitter, Interests)
+
+/*
+ * Users
+ */
+The Users class contains details of the user of the application. A user of the application may not necessarily be a member of any club and therefore has no 'Members' information. 
+That is to say, all members of a club are a user of the application, but not all users are a member. 
+
+User_ID (KEY) determines:
+- Password
+- Last Login
+- Is Superuser
+- Username
+- First Name
+- Last Name
+- Email
+
+/*
+ * Membership
+ */
+Members must join at least one club with no limit to the maximum number of clubs they may join. 
+
+Between the Clubs and Members, an association class called Membership holds the relation to each member and the clubs they have joined. 
+
+Member_ID, Club_ID (KEY) determines:
+- Date Joined
+- Date Last Paid
+
+
+For our design, not all our relations are in Boyce-Codd Normal Form. The reason for this is, we found that it would overload the querying process if we had to keep referencing to the Users class for information that should be directly related to the Members class. 
+Attributes such as first_name, last_name and email appear in both the Users class and the Members class.
